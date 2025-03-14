@@ -46,11 +46,14 @@ public class ConnectionDB {
         
     }
     public static void selectDB(Connection conn)throws SQLException{
-        String promp = "SELECT * FROM prompts";
+        String promp = "SELECT * FROM prompts",util;
         PreparedStatement stm = conn.prepareStatement(promp);
         ResultSet rs = stm.executeQuery(promp); 
         while(rs.next()){
-        
+            if(rs.getBoolean("util") == true){
+            util = "esta resposta foi boa para o usuario";
+            }else{util = "esta resposta foi ruim para o usuario";}
+            
         }
         
         conn.close();
