@@ -12,7 +12,7 @@ import io.github.ollama4j.utils.OptionsBuilder;
 import io.github.ollama4j.utils.PromptBuilder;
 import java.io.IOException;
 import java.sql.Connection;
-
+import java.util.Scanner;
 /**
  *
  * @author Ryan
@@ -20,11 +20,12 @@ import java.sql.Connection;
 public class Api {
 
     public static void main(String[] args) throws Exception  {
-        String host = "http://localhost:11434/";
+        Scanner s = new Scanner(System.in);
+        String host = "http://localhost:11434/",resposta;
         OllamaAPI ollamaAPI = new OllamaAPI(host);
         ollamaAPI.setRequestTimeoutSeconds(120);
         
-      Connection conn = ConnectionDB.connectDB();
+        Connection conn = ConnectionDB.connectDB();
       
         PromptBuilder promptBuilder =
                 new PromptBuilder()
@@ -40,8 +41,21 @@ public class Api {
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         System.out.println(response.getResponse());
         
-        ConnectionDB.insertDB(conn, response.getResponse(), true);
+        System.out.println("essa resposta foi util? responda com Y/N ou nao insira nada");
+        resposta = s.nextLine();
+        if (resposta.equals("y")){
+            ConnectionDB.insertDB(conn, response.getResponse(), true);
+            System.out.println("Armazenado com suceso");
+        }
+        else if(resposta.equals("n")){ConnectionDB.insertDB(conn, response.getResponse(), false);}
         
-        System.out.println("Dados INSERIDOS");
+        
+        System.out.println("____________________________________________________________________________________ \n");
+        resposta = s.nextLine();
+        if(resposta.equals("test")){
+        ConnectionDB.selectDB(conn);
+        }
+        
+        
     }
 }

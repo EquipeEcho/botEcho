@@ -44,4 +44,12 @@ public class ConnectionDB {
         conn.close();
         
     }
+    public static void selectDB(Connection conn)throws SQLException{
+    String del = "SELECT * FROM prompts";
+    PreparedStatement stm = conn.prepareStatement(del);
+        
+    stm.executeUpdate();
+        
+    conn.close();
+    }
 }
