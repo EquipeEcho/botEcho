@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class ConnectionDB {
     
@@ -45,11 +46,13 @@ public class ConnectionDB {
         
     }
     public static void selectDB(Connection conn)throws SQLException{
-    String del = "SELECT * FROM prompts";
-    PreparedStatement stm = conn.prepareStatement(del);
+        String promp = "SELECT * FROM prompts";
+        PreparedStatement stm = conn.prepareStatement(promp);
+        ResultSet rs = stm.executeQuery(promp); 
+        while(rs.next()){
         
-    stm.executeUpdate();
+        }
         
-    conn.close();
+        conn.close();
     }
 }
