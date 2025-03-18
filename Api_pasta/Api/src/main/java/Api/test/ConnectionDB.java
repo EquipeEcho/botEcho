@@ -17,7 +17,6 @@ public class ConnectionDB {
         String url = "jdbc:mysql://localhost:3306/botechoDB?user=root&password=fatec";
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Db Conectada");
         } catch (SQLException e) {
             System.out.println("ConexãoDB" + e.getMessage());
         }
@@ -46,7 +45,7 @@ public class ConnectionDB {
         
     }
     public static void selectDB(Connection conn)throws SQLException{
-        String promp = "SELECT * FROM prompts",util;
+        String promp = "SELECT * FROM promptsg",util;
         PreparedStatement stm = conn.prepareStatement(promp);
         ResultSet rs = stm.executeQuery(promp); 
         while(rs.next()){
