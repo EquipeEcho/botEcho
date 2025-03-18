@@ -4,12 +4,16 @@
  */
 package Api.test;
 
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  *
  * @author Ryan
  */
 public class UI extends javax.swing.JFrame {
-
+    private String ut; 
     /**
      * Creates new form UI
      */
@@ -33,9 +37,10 @@ public class UI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Sugestão = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 51));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -45,7 +50,7 @@ public class UI extends javax.swing.JFrame {
         jButton1.setText("Analize");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Análise(evt);
             }
         });
 
@@ -58,14 +63,14 @@ public class UI extends javax.swing.JFrame {
         jButton2.setText("Explicacao");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Explicação(evt);
             }
         });
 
-        jButton3.setText("Sugestao");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Sugestão.setText("Sugestao");
+        Sugestão.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SugestãoActionPerformed(evt);
             }
         });
 
@@ -83,7 +88,7 @@ public class UI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
                             .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(Sugestão))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
@@ -102,7 +107,7 @@ public class UI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)
                         .addGap(12, 12, 12)
-                        .addComponent(jButton3))
+                        .addComponent(Sugestão))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,19 +117,22 @@ public class UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Análise(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Análise
     Prompt prompt = new Prompt();
+    Connection conn = ConnectionDB.connectDB();
     
     try {
         prompt.Analise(jTextArea1.getText());
+        jTextArea2.setText(prompt.respostaBot());
+        
+        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade());
     } catch (Exception e) {
         e.printStackTrace(); // Print error details
         System.out.print("An error occurred: " + e.getMessage());
     }
-    jTextArea2.setText(prompt.respostaBot());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Análise
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Explicação(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Explicação
     Prompt prompt = new Prompt();
     
     try {
@@ -134,9 +142,9 @@ public class UI extends javax.swing.JFrame {
         System.out.print("An error occurred: " + e.getMessage());
     }
     jTextArea2.setText(prompt.respostaBot());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Explicação
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SugestãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SugestãoActionPerformed
     Prompt prompt = new Prompt();
     
     try {
@@ -146,7 +154,7 @@ public class UI extends javax.swing.JFrame {
         System.out.print("An error occurred: " + e.getMessage());
     }
     jTextArea2.setText(prompt.respostaBot());
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SugestãoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,9 +192,9 @@ public class UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Sugestão;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

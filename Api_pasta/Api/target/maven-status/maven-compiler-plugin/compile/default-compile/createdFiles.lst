@@ -1,2 +1,9 @@
-Api\test\Api.class
+Api\test\Api$1.class
 Api\test\ConnectionDB.class
+Api\test\UI.class
+Api\test\Prompt.class
+Api\test\UI$2.class
+Api\test\Api.class
+Api\test\UI$1.class
+Api\test\UI$4.class
+Api\test\UI$3.class

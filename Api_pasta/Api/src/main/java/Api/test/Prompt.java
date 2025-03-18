@@ -9,30 +9,26 @@ import io.github.ollama4j.models.response.OllamaResult;
 import io.github.ollama4j.utils.OptionsBuilder;
 import io.github.ollama4j.utils.PromptBuilder;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ryan
  */
 public class Prompt {
-        private char ia;
+    private char ia;
+    private Boolean util;
     private Connection conn;
-    private String host = "http://localhost:11434/",resposta, respostaBot;
+    private String host = "http://localhost:11434/",resposta, respostaBot, u;
     private OllamaAPI ollamaAPI = new OllamaAPI(host);
-    
-
     
     public void getResposta(String resposta){
         this.resposta = resposta;
     }
     
-    public void novoAddLine() {
+    public String Analise(String resposta) throws Exception{
+        ollamaAPI.setRequestTimeoutSeconds(120);
         
-    }
-    
-    public void Analise(String resposta) throws Exception{
-        ConnectionDB.connectDB();
-            ollamaAPI.setRequestTimeoutSeconds(120);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
                         .addLine("Você interpreta código na linguagem Python e devolve APENAS o resultado deles")
@@ -45,7 +41,7 @@ public class Prompt {
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
-        this.respostaBot = response.getResponse();
+        return this.respostaBot = response.getResponse();
     }
     
     public void Explicacao(String resposta) throws Exception {
@@ -81,5 +77,19 @@ public class Prompt {
     }
     public String respostaBot (){
     return this.respostaBot;
+    }
+    
+    public Boolean Utilidade() throws Exception{
+        String[] opcoes = {"Sim", "Não"};
+        int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.QUESTION_MESSAGE, null, opcoes, 1);
+        if (u == 1) {
+            Boolean ut = (u != 0);
+            
+            return ut;
+        } else {
+            Boolean ut = (u != 1);
+            
+            return ut;
+        }
     }
 }
