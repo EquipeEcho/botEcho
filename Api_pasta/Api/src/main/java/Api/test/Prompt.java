@@ -31,13 +31,24 @@ public class Prompt {
         
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Interprete código na linguagem Python e devolve APENAS o resultado deles")
+                        .addLine("voce é um desenvolvedor especialista em python e possui conhcimento abrangente para detectar erros")
                         .addSeparator()
+                        .addLine("analise codigos na liguagem python para ver se esta escrito corretamente")
+                        .addSeparator()  
+                        .addLine("corrija os erros que houver de sintaxe em python")
+                        .addSeparator()
+                        .addLine("analise e explique se houver algum erro lógico no codigo")
+                        .addSeparator()
+                        .addLine("analise o codigo para verificar se esta bem identado, corrija a identação")
+                        .addSeparator()     
+                        .addLine("verificar se não há o erro NameError")
+                        .addSeparator()  
+                        .addLine("verifique se todas as chaves passadas tem um dicionario existente, aponte se houver KeyError")
+                        .addSeparator()                           
                         .addLine(resposta)
                         .addSeparator()
-                        .add("Devolva o resultado do código ou o erro encontrado");
+                        .add("devolva a analise do codigo e diga quais sao os erros existentes ou se não há erros, logo após devolva o codigo corrigido");
                         
-        
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
