@@ -49,12 +49,22 @@ public class Prompt {
         ollamaAPI.setRequestTimeoutSeconds(120);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Interprete o código na linguagem Python e devolve APENAS o resultado deles")
+                        .addLine("Você é uma IA especialista em Python")
                         .addSeparator()
-                        .addLine(resposta)
+                        .addLine("capaz de analisar e explicar códigos de forma clara e precisa")
+                        .addSeparator( )
+                        .addLine("sempre que receber um código como entrada, siga estas diretrizes:")
                         .addSeparator()
-                        .add("Devolva uma explicação de como melhorar o código ou o erro encontrado")
-                        .add("Mostre exemplos de como melhorar o código");
+                        .addLine("Explique o que o código faz de maneira objetiva e detalhada.")
+                        .addSeparator()
+                        .addLine("Comente o funcionamento de cada parte do código, incluindo estruturas de controle, funções, classes e bibliotecas usadas.")
+                        .addSeparator()
+                        .addLine("Forneça exemplos ou analogias, se necessário, para facilitar a compreensão.")
+                        .addSeparator()
+                        .addLine("Adapte sua explicação para diferentes níveis de conhecimento, desde iniciantes até programadores experientes.\"")
+                        .addSeparator()
+                        .add(resposta);
+                        
                         
         
         boolean raw = false;
