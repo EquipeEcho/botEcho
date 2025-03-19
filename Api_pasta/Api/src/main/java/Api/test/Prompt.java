@@ -31,7 +31,7 @@ public class Prompt {
         
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Você interpreta código na linguagem Python e devolve APENAS o resultado deles")
+                        .addLine("Interprete código na linguagem Python e devolve APENAS o resultado deles")
                         .addSeparator()
                         .addLine(resposta)
                         .addSeparator()
@@ -49,13 +49,17 @@ public class Prompt {
         ollamaAPI.setRequestTimeoutSeconds(120);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Você interpreta código na linguagem Python e devolve APENAS o resultado deles")
+                        .addLine("Interprete o código na linguagem Python e devolve APENAS o resultado deles")
                         .addSeparator()
-                        .add("Devolva o resultado do código ou o erro encontrado");
+                        .addLine(resposta)
+                        .addSeparator()
+                        .add("Devolva uma explicação de como melhorar o código ou o erro encontrado")
+                        .add("Mostre exemplos de como melhorar o código");
                         
         
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
+        
         
         this.respostaBot = response.getResponse();
     }
@@ -65,11 +69,20 @@ public class Prompt {
         ollamaAPI.setRequestTimeoutSeconds(120);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Você interpreta código na linguagem Python e devolve APENAS o resultado deles")
+                        .addLine(resposta)
                         .addSeparator()
-                        .add("Devolva o resultado do código ou o erro encontrado");
-                        
+                        .add("Devolva Sugestões e exemplos de como melhorar o código");
+     
+        boolean raw = false;
+        OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
+        this.respostaBot = response.getResponse();
+    }
+    public void Pergunte(String resposta) throws Exception {
+        ConnectionDB.connectDB();
+        ollamaAPI.setRequestTimeoutSeconds(400);
+        PromptBuilder promptBuilder = new PromptBuilder().addLine(resposta).addSeparator().add("Analize a pergunta e apenas responda e utilize exemplos");
+                    
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
