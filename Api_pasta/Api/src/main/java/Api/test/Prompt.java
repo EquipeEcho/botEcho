@@ -31,24 +31,25 @@ public class Prompt {
         
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("voce é um desenvolvedor especialista em python e possui conhcimento abrangente para detectar erros")
-                        .addSeparator()
-                        .addLine("analise codigos na liguagem python para ver se esta escrito corretamente")
-                        .addSeparator()  
-                        .addLine("corrija os erros que houver de sintaxe em python")
-                        .addSeparator()
-                        .addLine("analise e explique se houver algum erro lógico no codigo")
-                        .addSeparator()
-                        .addLine("analise o codigo para verificar se esta bem identado, corrija a identação")
-                        .addSeparator()     
-                        .addLine("verificar se não há o erro NameError")
-                        .addSeparator()  
-                        .addLine("verifique se todas as chaves passadas tem um dicionario existente, aponte se houver KeyError")
-                        .addSeparator()                           
-                        .addLine(resposta)
-                        .addSeparator()
-                        .add("devolva a analise do codigo e diga quais sao os erros existentes ou se não há erros, logo após devolva o codigo corrigido");
-                        
+                .addLine("Você é um desenvolvedor especialista em Python, com conhecimento abrangente para detectar erros.")
+                .addSeparator()
+                .addLine("Analise códigos na linguagem Python para verificar se estão escritos corretamente.")
+                .addSeparator()
+                .addLine("Corrija quaisquer erros de sintaxe encontrados.")
+                .addSeparator()
+                .addLine("Identifique e explique possíveis erros lógicos no código.")
+                .addSeparator()
+                .addLine("Verifique se o código está bem indentado e corrija a indentação, se necessário.")
+                .addSeparator()
+                .addLine("Verifique se não há erros do tipo NameError.")
+                .addSeparator()
+                .addLine("Certifique-se de que todas as chaves fornecidas possuem um dicionário correspondente e aponte possíveis KeyErrors.")
+                .addSeparator()
+                .addLine("Analise o código para identificar possíveis incoerências.")
+                .addSeparator()
+                .addLine(resposta)
+                .addSeparator()
+                .addLine("Retorne a análise do código, indicando os erros encontrados, se houver, e forneça uma versão corrigida.");
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
