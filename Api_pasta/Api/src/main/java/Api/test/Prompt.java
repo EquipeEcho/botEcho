@@ -118,14 +118,15 @@ public class Prompt {
     public Boolean Utilidade() throws Exception{
         String[] opcoes = {"Sim", "Não"};
         int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.QUESTION_MESSAGE, null, opcoes, 1);
-        if (u == 1) {
-            Boolean ut = (u != 0);
-            
-            return ut;
+        if (u == 0) {
+            return true;
         } else {
-            Boolean ut = (u != 1);
-            
-            return ut;
+            return false;
         }
+    }
+    
+    public String Nome() throws Exception {
+        String nome = JOptionPane.showInputDialog("Nome para o arquivo: ");
+        return nome;
     }
 }

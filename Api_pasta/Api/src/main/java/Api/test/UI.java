@@ -141,6 +141,7 @@ public class UI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Análise(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Análise
@@ -151,7 +152,7 @@ public class UI extends javax.swing.JFrame {
         prompt.Analise(jTextArea1.getText());
         jTextArea2.setText(prompt.respostaBot());
         
-        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade());
+        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
     } catch (Exception e) {
         e.printStackTrace(); // Print error details
         System.out.print("An error occurred: " + e.getMessage());
@@ -160,21 +161,28 @@ public class UI extends javax.swing.JFrame {
 
     private void Explicação(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Explicação
     Prompt prompt = new Prompt();
+    Connection conn = ConnectionDB.connectDB();
     
     try {
         prompt.Explicacao(jTextArea1.getText());
+        jTextArea2.setText(prompt.respostaBot());
+        
+        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
     } catch (Exception e) {
         e.printStackTrace(); // Print error details
         System.out.print("An error occurred: " + e.getMessage());
     }
-    jTextArea2.setText(prompt.respostaBot());
     }//GEN-LAST:event_Explicação
     
     private void Sugestao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sugestao
     Prompt prompt = new Prompt();
+    Connection conn = ConnectionDB.connectDB();
     
     try {
         prompt.Sugestao(jTextArea1.getText());
+        jTextArea2.setText(prompt.respostaBot());
+        
+        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
     } catch (Exception e) {
         e.printStackTrace(); // Print error details
         System.out.print("An error occurred: " + e.getMessage());

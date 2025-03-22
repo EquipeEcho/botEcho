@@ -23,12 +23,15 @@ public class ConnectionDB {
         return conn;
     }
     
-    public static void insertDB(Connection conn, String resposta, Boolean util) throws SQLException {
-        String sql = "INSERT INTO prompts (resposta, util) VALUES (?, ?)";
+    public static void insertDB(Connection conn, String resposta, Boolean util, char ia, String Nome, String data) throws SQLException {
+        String sql = "INSERT INTO prompts (resposta, util, ia, Nome, data) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement stm = conn.prepareStatement(sql);
         
         stm.setString(1, resposta);
         stm.setBoolean(2, util);
+        stm.setString(3, String.valueOf(ia));
+        stm.setString(4, Nome);
+        stm.setString(5, data);
         stm.executeUpdate();
         
         conn.close();
@@ -45,15 +48,9 @@ public class ConnectionDB {
         
     }
     public static void selectDB(Connection conn)throws SQLException{
-        String promp = "SELECT * FROM promptsg",util;
-        PreparedStatement stm = conn.prepareStatement(promp);
-        ResultSet rs = stm.executeQuery(promp); 
-        while(rs.next()){
-            if(rs.getBoolean("util") == true){
-            util = "esta resposta foi boa para o usuario";
-            }else{util = "esta resposta foi ruim para o usuario";}
-            
-        }
+        String prompt = "SELECT * FROM prompts",util;
+        PreparedStatement stm = conn.prepareStatement(prompt);
+        ResultSet rs = stm.executeQuery(prompt); 
         
         conn.close();
     }
