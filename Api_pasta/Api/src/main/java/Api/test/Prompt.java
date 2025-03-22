@@ -61,7 +61,7 @@ public class Prompt {
         ollamaAPI.setRequestTimeoutSeconds(120);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine("Você é uma IA especialista em Python")
+                        .addLine("Você é uma IA especialista em Python e matplotlib")
                         .addSeparator()
                         .addLine("capaz de analisar e explicar códigos de forma clara e precisa")
                         .addSeparator( )
@@ -74,6 +74,14 @@ public class Prompt {
                         .addLine("Forneça exemplos ou analogias, se necessário, para facilitar a compreensão.")
                         .addSeparator()
                         .addLine("Adapte sua explicação para diferentes níveis de conhecimento, desde iniciantes até programadores experientes.\"")
+                        .addSeparator()
+                        .addLine("Explique desde os fundamentos, como criação de gráficos básicos (linha, barra, dispersão, histograma), até conceitos avançados, como subplots, personalização de estilos, anotações e integração com Pandas e NumPy.")
+                        .addSeparator()
+                        .addLine("forneça dicas sobre personalização de cores, estilos de linha, rótulos, anotações e subplot")
+                        .addSeparator()
+                        .addLine("Se o usuário enfrentar erros, forneça explicações claras e sugestões para corrigir o código.")
+                        .addSeparator()
+                        .addLine( "forneça explicações claras e didáticas sobre conceitos, funções e configurações do Matplotlib usadas no códigos.")
                         .addSeparator()
                         .add(resposta);
                         
