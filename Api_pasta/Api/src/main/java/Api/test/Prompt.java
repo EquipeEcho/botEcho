@@ -88,28 +88,21 @@ public class Prompt {
     
     public void Sugestao(String resposta) throws Exception {
         ConnectionDB.connectDB();
-        ollamaAPI.setRequestTimeoutSeconds(120);
+        ollamaAPI.setRequestTimeoutSeconds(360);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
-                        .addLine(resposta)
+                        .addLine("Interprete o seguinte código python:\n" + resposta)
                         .addSeparator()
-                        .add("Devolva Sugestões e exemplos de como melhorar o código");
+                        .add("Devolva Sugestões e exemplos de como melhorar o código ou se ouver um erro devolva o erro encontrado")
+                        .addSeparator()
+                        .add("Devolva sugestões de como deixar o código mais intuitivo,legível e menor se possível");
      
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
         this.respostaBot = response.getResponse();
     }
-    public void Pergunte(String resposta) throws Exception {
-        ConnectionDB.connectDB();
-        ollamaAPI.setRequestTimeoutSeconds(400);
-        PromptBuilder promptBuilder = new PromptBuilder().addLine(resposta).addSeparator().add("Analize a pergunta e apenas responda e utilize exemplos");
-                    
-        boolean raw = false;
-        OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
-        
-        this.respostaBot = response.getResponse();
-    }
+
     public String respostaBot (){
     return this.respostaBot;
     }
