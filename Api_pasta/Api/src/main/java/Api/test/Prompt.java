@@ -41,7 +41,7 @@ public class Prompt {
                 .addSeparator()
                 .addLine("Verifique se o código está bem indentado e corrija a indentação, se necessário.")
                 .addSeparator()
-                .addLine("Verifique se não há erros do tipo NameError.")
+                .addLine("Verifique se não há erros do tipo NameError.")/*Verifique se não há TypeError, Verifique se não há IdexError*/ /*Testei mesmo dando continuou não achando achei melhor não mexer pq é sua task*/
                 .addSeparator()
                 .addLine("Certifique-se de que todas as chaves fornecidas possuem um dicionário correspondente e aponte possíveis KeyErrors.")
                 .addSeparator()
