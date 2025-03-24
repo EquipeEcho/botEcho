@@ -68,6 +68,7 @@ public class UI extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea2.setRows(5);
+        jTextArea2.setEditable(false);
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
