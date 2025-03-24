@@ -27,7 +27,7 @@ public class Prompt {
     }
     
     public String Analise(String resposta) throws Exception{
-        ollamaAPI.setRequestTimeoutSeconds(120);
+        ollamaAPI.setRequestTimeoutSeconds(500);
         
         PromptBuilder promptBuilder =
                 new PromptBuilder()
@@ -41,15 +41,28 @@ public class Prompt {
                 .addSeparator()
                 .addLine("Verifique se o código está bem indentado e corrija a indentação, se necessário.")
                 .addSeparator()
-                .addLine("Verifique se não há erros do tipo NameError.")/*Verifique se não há TypeError, Verifique se não há IdexError*/ /*Testei mesmo dando continuou não achando achei melhor não mexer pq é sua task*/
+                .addLine("Verifique se não há erros do tipo NameError.")
                 .addSeparator()
-                .addLine("Certifique-se de que todas as chaves fornecidas possuem um dicionário correspondente e aponte possíveis KeyErrors.")
+                .addLine("Verifique se não há erros do tipo: TypeError, que é comum em codigos python.")
+                .addSeparator()  
+                .addLine("Verifique se não há erros do tipo: IndexError, que é comum em codigos python.")
+                .addSeparator()
+                .addLine("Certifique-se de que todas as chaves fornecidas possuem um dicionário correspondente e aponte possíveis KeyError.")
                 .addSeparator()
                 .addLine("Analise o código para identificar possíveis incoerências.")
                 .addSeparator()
+                .addLine("o Matplotlib é uma biblioteca python frequentemente utilizada e voce possui conhecimento completo de como utiliza-la")
+                .addSeparator()
+                .addLine("você como desenvolvedor experiente em python consegue utilizar o Matplotlib e fazer o import correto do NumPY: import numpy as np ")
+                .addSeparator()
+                .addLine("faça os imports necessarios dentro da biblioteca matplotlib do python para realizar graficos do tipo line: fig, ax = plt.subplots()"
+                        + "ax.plot(x, x**2);")
+                .addSeparator()
+                .addLine("Reconheça se foi pedido grafico, se sim, use os dados ou funções fornecidas e gere o grafico pedido utilizando a biblioteca matplotlib do python, exiba o grafico")
+                .addSeparator()
                 .addLine(resposta)
                 .addSeparator()
-                .addLine("Retorne a análise do código, indicando os erros encontrados, se houver, e forneça uma versão corrigida.");
+                .addLine("se houver erros devolva uma analise indicando os erros e a versao corrigida, caso não haja erros, execute o codigo e utilize as bibliotecas indicadas,");
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         

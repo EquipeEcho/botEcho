@@ -54,7 +54,7 @@ public class UI extends javax.swing.JFrame {
         jTextArea1.getAccessibleContext().setAccessibleName("areaUsuario");
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Analize");
+        jButton1.setText("Análise");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Análise(evt);
