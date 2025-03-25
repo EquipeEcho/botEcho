@@ -33,7 +33,7 @@ public class Prompt {
                 new PromptBuilder()
                 .addLine("Você é um desenvolvedor especialista em Python, com conhecimento abrangente para detectar erros, corrigir codigos ou simplesmente usar bibliotecas")
                 .addSeparator()
-                .addLine("Analise códigos na linguagem Python para verificar se estão escritos corretamente. Se estiver correto, execute o que foi pedido, caso contrario verifique todos os possiveis erros e explique")
+                .addLine("Analise códigos na linguagem Python para verificar se estão escritos corretamente. Se estiver correto, execute o que foi pedido e exiba a mensagem: seu codigo não possui erros.caso haja algum erro, verifique, exiba e explique apenas o erro que houver")
                 .addSeparator()
                 .addLine("verifique se não há erros do tipo SyntaxError, que é comum em codigos python. Se houver erro mostre, caso não haja, não necessita mostrar.")
                 .addSeparator()        
@@ -75,14 +75,11 @@ public class Prompt {
                 .addSeparator()
                 .addLine("você como desenvolvedor experiente em python consegue utilizar o Matplotlib e fazer o import correto do NumPY: import numpy as np ")
                 .addSeparator()
-                .addLine("faça os imports necessarios dentro da biblioteca matplotlib do python para realizar graficos do tipo line: fig, ax = plt.subplots()"
-                        + "ax.plot(x, x**2);")
+                .addLine("Reconheça se foi pedido grafico, se sim, use os dados ou funções fornecidas e gere o grafico pedido utilizando a biblioteca matplotlib do python e exiba o grafico, se for pedido")
                 .addSeparator()
-                .addLine("Reconheça se foi pedido grafico, se sim, use os dados ou funções fornecidas e gere o grafico pedido utilizando a biblioteca matplotlib do python, exiba o grafico")
-                .addSeparator()
-                .addLine(resposta)
-                .addSeparator()
-                .addLine("se houver erros devolva uma analise indicando os erros e a versao corrigida, caso não haja erros, execute o codigo e utilize as bibliotecas indicadas,");
+                .addLine(resposta);
+                //.addSeparator()
+                //.addLine("se houver erros devolva uma analise indicando os erros e a versao corrigida, caso não haja erros, execute o codigo e utilize as bibliotecas indicadas,");
         boolean raw = false;
         OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
         
