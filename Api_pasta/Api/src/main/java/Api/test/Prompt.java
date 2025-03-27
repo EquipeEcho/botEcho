@@ -11,10 +11,6 @@ import io.github.ollama4j.utils.PromptBuilder;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Ryan
- */
 public class Prompt {
     private char ia;
     private Boolean util;
