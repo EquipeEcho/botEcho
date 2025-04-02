@@ -1,6 +1,7 @@
 # Equipe Echo - Aprendizado por Projeto Integrado (API)
 
-Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Proatividade, Autonomia, Colaboração e Entrega de Resultados dos estudantes envolvidos
+Projeto de dessenvolvimento de IDE voltado para aprendizado de Dessevolvimento de graficos com python junto com Matplotlib, com auxílio de IA
+
 
 # Índice
 * [Objetivo do Projeto](#objetivo-do-projeto)
@@ -26,17 +27,18 @@ Sprint | Previsão | Status|
 Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
 * Auxílio ao desenvolvedor a otimizar tempo e custo de desenvolvimnto;
 * Ampliar o conhecimento sobre a linguagem Python através do uso de IA;
-* Projeto de API da Equipe Echo, turma de ADS da Fatec-SJC;
+
 
 # Funcionalidades e registros da Sprint:
 
- ![Jira Software](https://img.shields.io/badge/Jira-fdfefe?style=for-the-badge&logo=jira&logoColor=0064c8)
+ ![Jira Software](https://img.shields.io/badge/Jira-fdfefe?style=for-the-badge&logo=Jira&logoColor=0064c8)
  ![Notion](https://img.shields.io/badge/Notion-fdfefe?style=for-the-badge&logo=notion&logoColor=000000)
  ![Discord](https://img.shields.io/badge/Discord-fdfefe?style=for-the-badge&logo=discord)
- ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+ ![Java](https://img.shields.io/badge/Java-fdfefe?style=for-the-badge&logo=openjdk&logoColor=000000)
  ![Markdown](https://img.shields.io/badge/Markdown-fdfefe?style=for-the-badge&logo=markdown&logoColor=2e4053)
  ![Github](https://img.shields.io/badge/Github-fdfefe?style=for-the-badge&logo=github&logoColor=000000)
  ![VisualStudioCode](https://img.shields.io/badge/VsCode-fdfefe?style=for-the-badge&logo=visualstudiocode)
+ ![Ollama](https://img.shields.io/badge/Ollama-fdfefe?style=for-the-badge&logo=Ollama&logoColor=000000)
 
 # Backlog do produto
 
@@ -52,33 +54,31 @@ Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
 # Competências desenvolvidas
 
 ## Hard Skill (saber tecnológico)
-<details>
+
 <summary>Hard Skills desenvolvidas</summary>
   
 | Tecnologia/Metodologia | Classificação |
 | ---------------------- | ------------- |
-| GitHub | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Gestão de Projetos | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Scrum Master | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Product Owner |  ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆  |
-| Git Projects | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
+| GitHub | ★ ★ ★ ★ ★ ★ ★ ☆ ☆ ☆ |
+| Gestão de Projetos | ★ ★ ★ ★ ★ ★ ★ ★ ★ ☆ |
+| Scrum Master | ★ ★ ★ ★ ★ ★ ★ ★ ☆ ☆ |
+| Product Owner |  ★ ★ ★ ★ ★ ★ ★ ★ ☆ ☆  |
+| Git Projects | ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ |
  
-</details>
-
 ## Soft Skill (saber comportamental)
-<details>
+
 <summary>Soft Skills desenvolvidas</summary>
 
 | Habilidades | Classificação |
 | ---------------------- | ------------- |
-| Colaboração | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Proatividade| ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Pensamento Crítico | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Gerenciamento de Tempo | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Adaptabilidade | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
-| Resiliência | ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ |
+| Colaboração | ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ |
+| Proatividade| ★ ★ ★ ★ ★ ★ ★ ★ ☆ ☆ |
+| Pensamento Crítico | ★ ★ ★ ★ ★ ★ ★ ☆ ☆ ☆ |
+| Gerenciamento de Tempo | ★ ★ ★ ★ ★ ★ ★ ★ ★ ☆ |
+| Adaptabilidade | ★ ★ ★ ★ ★ ★ ☆ ☆ ☆ ☆ |
+| Resiliência | ★ ★ ★ ★ ★ ★ ★ ★ ☆ ☆ |
 
-</details>
+
 
 # Autores
 |    Função     | Nome                                  |                                                                                                                                                      LinkedIn & GitHub                                                                                                                                                      |
