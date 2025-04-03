@@ -25,6 +25,7 @@ Sprint | Previsão | Status|
 
 # Objetivo do Projeto
 Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
+* Desenvolvimento de IDE ;
 * Auxílio ao desenvolvedor a otimizar tempo e custo de desenvolvimnto;
 * Ampliar o conhecimento sobre a linguagem Python através do uso de IA;
 
