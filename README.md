@@ -44,13 +44,14 @@ Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
 # Backlog do produto
 
 | ID | Sprint | Prioridades | UserStories | Estimativa (Planning Poker)  |
-|---|---|---|---|---|
-| I | 1 | Alta  | Como desenvolvedor, quero que a IDE analise e sugira otimizações no meu código a fim de reduzir redundâncias e melhorar a performance;  | 8 |
-| II | 1 | Alta | Como desenvolvedor, quero que explique partes do código para que o usuário possa entender melhor trechos complexos; | 8|
-| III | 1 | Média | Como desenvolvedor, quero gerar documentações de código a fim de economizar tempo;  | 5 |
-| V | 1 | Média |Como desenvolvedor, quero ver recomendações de boas práticas dentro do editor para melhorar a qualidade do meu código; | 5 |
-| VI | 1 | Baixa | Como desenvolvedor, quero personalizar a interface da IDE para melhorar minha experiência de uso; | 3 |
-| VII | 1 | Baixa | Como desenvolvedor, quero carregar o meu arquivo para que a IDE possa analisá-lo e forneça sugestões de otimização e melhoras; | 3 |
+|:---:|:---:|:---:|---|:---:|
+| I | 1 | Alta  | Como desenvolvedor, quero que a IDE analise e sugira otimizações no meu código a fim de reduzir redundâncias e melhorar a performance.  | 8 |
+| II | 1 | Alta | Como desenvolvedor, quero que explique partes do código para que o usuário possa entender melhor trechos complexos. | 8 |
+| III | 1 | Média | Como desenvolvedor, quero executar meu código diretamente na IDE para que eu possa testar seu funcionamento em tempo real e corrigir erros rapidamente. | 5 |
+| IV | 2 | Média | Como desenvolvedor, quero gerar documentações de código a fim de economizar tempo.  | 5 |
+| V | 1 e 2 | Média |Como desenvolvedor, quero ver recomendações de boas práticas dentro do editor para melhorar a qualidade do meu código. | 5 |
+| VI | 1 e 2 | Baixa | Como desenvolvedor, quero personalizar a interface da IDE para melhorar minha experiência de uso. | 3 |
+| VII | 2 | Baixa | Como desenvolvedor, quero carregar o meu arquivo para que a IDE possa analisá-lo e forneça sugestões de otimização e melhoras. | 3 |
 
 # Competências desenvolvidas
 
