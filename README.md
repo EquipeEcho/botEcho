@@ -20,7 +20,7 @@ Sprint | Previsão | Status|
 |<p style="text-align">Kick Off |<p style="text-align"> 24/02 - 28/02 | <p style="text-align"> Concluído |
 |<p style="text-align">Sprint 1 |<p style="text-align"> 10/03 - 30/03 |<p style="text-align"> Concluído |
 |<p style="text-align">Sprint 2|<p style="text-align">07/04 - 27/04|<p style="text-align">Não iniciada |
-|<p style="text-align">Sprint 3|<p style="text-align"> 05/05 - 25/05 |<p style="text-align"> Não iniciada|
+|<p style="text-align">Sprint 3|<p style="text-align"> 05/05 - 25/05 |<p style="text-align"> Em andamento|
 |<p style="text-align">Feira de Soluções |<p style="text-align"> 29/05 |<p style="text-align">Não iniciada|
 
 # Objetivo do Projeto
@@ -30,7 +30,7 @@ Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
 * Ampliar o conhecimento sobre a linguagem Python através do uso de IA;
 
 
-# Funcionalidades e registros da Sprint:
+# Tecnologias utilizadas pela equipe:
 
  ![Jira Software](https://img.shields.io/badge/Jira-fdfefe?style=for-the-badge&logo=Jira&logoColor=0064c8)
  ![Notion](https://img.shields.io/badge/Notion-fdfefe?style=for-the-badge&logo=notion&logoColor=000000)
