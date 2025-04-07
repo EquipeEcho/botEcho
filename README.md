@@ -30,7 +30,7 @@ Desenvolvimento de um Ambiente Integrado de Desenvolvimento(IDE).
 * Ampliar o conhecimento sobre a linguagem Python através do uso de IA;
 
 
-# Tecnologias utilizadas pela equipe:
+# Tecnologias usadas pela equipe:
 
  ![Jira Software](https://img.shields.io/badge/Jira-fdfefe?style=for-the-badge&logo=Jira&logoColor=0064c8)
  ![Notion](https://img.shields.io/badge/Notion-fdfefe?style=for-the-badge&logo=notion&logoColor=000000)
