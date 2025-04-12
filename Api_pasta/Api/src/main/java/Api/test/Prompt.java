@@ -143,7 +143,7 @@ public class Prompt {
     
     public Boolean Utilidade() throws Exception{
         String[] opcoes = {"Sim", "Não"};
-        int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.QUESTION_MESSAGE, null, opcoes, 1);
+        int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, 1);
         if (u == 0) {
             return true;
         } else {
@@ -155,4 +155,5 @@ public class Prompt {
         String nome = JOptionPane.showInputDialog("Nome para o arquivo: ");
         return nome;
     }
+    
 }

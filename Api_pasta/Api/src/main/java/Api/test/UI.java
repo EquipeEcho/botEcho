@@ -5,17 +5,31 @@
 package Api.test;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author Ryan
  */
 public class UI extends javax.swing.JFrame {
+    public char ia;
+    public int op;
     private String ut; 
+    
     /**
      * Creates new form UI
      */
@@ -47,6 +61,7 @@ public class UI extends javax.swing.JFrame {
         Sugestão = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        Historico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bot Echo IDE");
@@ -101,6 +116,14 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        Historico.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Historico.setText("Histórico");
+        Historico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Historico(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,12 +136,13 @@ public class UI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Sugestão, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(Sugestão, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(Historico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
@@ -138,7 +162,9 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(13, 13, 13)
                         .addComponent(Sugestão)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Historico)
+                        .addGap(4, 4, 4)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,6 +232,73 @@ public class UI extends javax.swing.JFrame {
         jTextArea2.setText(ep.getRes());
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void Historico(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Historico
+        Connection conn = ConnectionDB.connectDB();
+        
+        try {
+        String[] opcoes = {"Análise", "Explicação", "Sugestão"};
+        String[] colunas = new String[] {
+            "Nome", "Data", "Resposta", "Tipo"
+        };
+
+        int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
+
+        if (op == 0) {
+            ia = 'A';
+        } else if (op == 1) { 
+            ia = 'E';
+        } else if (op == 2) {
+            ia = 'S';
+        } else if (op == JOptionPane.CLOSED_OPTION) {
+            return;
+        }
+        
+        DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
+        ArrayList<Object []> historico = ConnectionDB.selectDB(conn, ia);
+        
+        for (Object[] h : historico) {
+            tabelaHist.addRow(h);
+        }
+        
+        JTable tabelaHistorico = new JTable(tabelaHist);
+        tabelaHistorico.setRowHeight(20);
+        TableColumnModel columnModel = tabelaHistorico.getColumnModel();
+        columnModel.getColumn(0).setWidth(100);
+        columnModel.getColumn(1).setPreferredWidth(60);
+        columnModel.getColumn(2).setPreferredWidth(250);
+        columnModel.getColumn(3).setPreferredWidth(10);
+        JFrame frameHistorico = new JFrame("Histórico de Prompts");
+        frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JScrollPane scroll = new JScrollPane(tabelaHistorico);
+        frameHistorico.getContentPane().add(scroll);
+        frameHistorico.pack();
+        frameHistorico.setLocationRelativeTo(null);
+        frameHistorico.setVisible(true);
+        
+        tabelaHistorico.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                int row = tabelaHistorico.rowAtPoint(evt.getPoint());
+                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
+                
+                if (row >= 0) {
+                    Object nome = tabelaHistorico.getValueAt(row, 0);
+                    Object data = tabelaHistorico.getValueAt(row, 1);
+                    Object resposta = tabelaHistorico.getValueAt(row, 2);
+                    
+                    jTextArea1.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
+                    frameHistorico.dispose();
+                }
+            }
+        });
+        
+        } catch (SQLException er){
+            er.printStackTrace();
+        } catch (Exception er){
+            throw new RuntimeException(er);
+        }
+    }//GEN-LAST:event_Historico
+
     /**
      * @param args the command line arguments
      */
@@ -242,6 +335,7 @@ public class UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Historico;
     private javax.swing.JButton Sugestão;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

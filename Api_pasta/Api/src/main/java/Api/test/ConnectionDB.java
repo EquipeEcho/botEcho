@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class ConnectionDB {
     
@@ -47,11 +48,24 @@ public class ConnectionDB {
         conn.close();
         
     }
-    public static void selectDB(Connection conn)throws SQLException{
-        String prompt = "SELECT * FROM prompts",util;
-        PreparedStatement stm = conn.prepareStatement(prompt);
-        ResultSet rs = stm.executeQuery(prompt); 
+    public static ArrayList selectDB(Connection conn, char tipo) throws SQLException{
+        String prompt = "SELECT * FROM prompts WHERE ia = ?";
+        ArrayList <Object []> historico = new ArrayList<>();
         
-        conn.close();
+        PreparedStatement stm = conn.prepareStatement(prompt);
+        stm.setString(1, String.valueOf(tipo));
+        ResultSet rs = stm.executeQuery(); 
+        
+        while(rs.next()) {
+            Object[] p = new Object[4];
+            p[0] = rs.getString("nome");
+            p[1] = rs.getString("data");
+            p[2] = rs.getString("resposta");
+            p[3] = rs.getString("ia");
+            historico.add(p);
+        }
+        rs.close();
+        stm.close();
+        return historico;
     }
 }
