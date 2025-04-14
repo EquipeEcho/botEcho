@@ -52,7 +52,7 @@ public class UI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Documentacao = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -62,17 +62,18 @@ public class UI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         Historico = new javax.swing.JButton();
+        document = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bot Echo IDE");
         setBackground(new java.awt.Color(0, 102, 102));
         setForeground(java.awt.Color.blue);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-        jTextArea1.getAccessibleContext().setAccessibleName("areaUsuario");
+        Documentacao.setColumns(20);
+        Documentacao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Documentacao.setRows(5);
+        jScrollPane1.setViewportView(Documentacao);
+        Documentacao.getAccessibleContext().setAccessibleName("areaUsuario");
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setText("Análise");
@@ -124,6 +125,14 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        document.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        document.setText("Documentação");
+        document.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Documentacao(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,15 +146,16 @@ public class UI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(Sugestão, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(Historico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Sugestão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Historico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(document, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
                             .addComponent(jScrollPane2))))
                 .addGap(26, 26, 26))
         );
@@ -164,9 +174,11 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(Sugestão)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Historico)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(document)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -185,7 +197,7 @@ public class UI extends javax.swing.JFrame {
     Connection conn = ConnectionDB.connectDB();
     
     try {
-        prompt.Analise(jTextArea1.getText());
+        prompt.Analise(Documentacao.getText());
         jTextArea2.setText(prompt.respostaBot());
         
         ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
@@ -200,7 +212,7 @@ public class UI extends javax.swing.JFrame {
     Connection conn = ConnectionDB.connectDB();
     
     try {
-        prompt.Explicacao(jTextArea1.getText());
+        prompt.Explicacao(Documentacao.getText());
         jTextArea2.setText(prompt.respostaBot());
         
         ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
@@ -215,7 +227,7 @@ public class UI extends javax.swing.JFrame {
     Connection conn = ConnectionDB.connectDB();
     
     try {
-        prompt.Sugestao(jTextArea1.getText());
+        prompt.Sugestao(Documentacao.getText());
         jTextArea2.setText(prompt.respostaBot());
         
         ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
@@ -228,76 +240,98 @@ public class UI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ExecPy ep = new ExecPy();
-        ep.exec(jTextArea1.getText());
+        ep.exec(Documentacao.getText());
         jTextArea2.setText(ep.getRes());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Historico(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Historico
         Connection conn = ConnectionDB.connectDB();
-        
+
         try {
-        String[] opcoes = {"Análise", "Explicação", "Sugestão"};
-        String[] colunas = new String[] {
-            "Nome", "Data", "Resposta", "Tipo"
-        };
+            String[] opcoes = {"Análise", "Explicação", "Sugestão"};
+            String[] colunas = new String[] {
+                "Nome", "Data", "Resposta", "Tipo"
+            };
 
-        int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
+            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
 
-        if (op == 0) {
-            ia = 'A';
-        } else if (op == 1) { 
-            ia = 'E';
-        } else if (op == 2) {
-            ia = 'S';
-        } else if (op == JOptionPane.CLOSED_OPTION) {
-            return;
-        }
-        
-        DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
-        ArrayList<Object []> historico = ConnectionDB.selectDB(conn, ia);
-        
-        for (Object[] h : historico) {
-            tabelaHist.addRow(h);
-        }
-        
-        JTable tabelaHistorico = new JTable(tabelaHist);
-        tabelaHistorico.setRowHeight(20);
-        TableColumnModel columnModel = tabelaHistorico.getColumnModel();
-        columnModel.getColumn(0).setWidth(100);
-        columnModel.getColumn(1).setPreferredWidth(60);
-        columnModel.getColumn(2).setPreferredWidth(250);
-        columnModel.getColumn(3).setPreferredWidth(10);
-        JFrame frameHistorico = new JFrame("Histórico de Prompts");
-        frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        JScrollPane scroll = new JScrollPane(tabelaHistorico);
-        frameHistorico.getContentPane().add(scroll);
-        frameHistorico.pack();
-        frameHistorico.setLocationRelativeTo(null);
-        frameHistorico.setVisible(true);
-        
-        tabelaHistorico.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-                int row = tabelaHistorico.rowAtPoint(evt.getPoint());
-                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
-                
-                if (row >= 0) {
-                    Object nome = tabelaHistorico.getValueAt(row, 0);
-                    Object data = tabelaHistorico.getValueAt(row, 1);
-                    Object resposta = tabelaHistorico.getValueAt(row, 2);
-                    
-                    jTextArea1.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
-                    frameHistorico.dispose();
-                }
+            if (op == 0) {
+                ia = 'A';
+            } else if (op == 1) {
+                ia = 'E';
+            } else if (op == 2) {
+                ia = 'S';
+            } else if (op == JOptionPane.CLOSED_OPTION) {
+                return;
             }
-        });
-        
+
+            DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
+            ArrayList<Object []> historico = ConnectionDB.selectDB(conn, ia);
+
+            for (Object[] h : historico) {
+                tabelaHist.addRow(h);
+            }
+
+            JTable tabelaHistorico = new JTable(tabelaHist);
+            tabelaHistorico.setRowHeight(20);
+            TableColumnModel columnModel = tabelaHistorico.getColumnModel();
+            columnModel.getColumn(0).setWidth(100);
+            columnModel.getColumn(1).setPreferredWidth(60);
+            columnModel.getColumn(2).setPreferredWidth(250);
+            columnModel.getColumn(3).setPreferredWidth(10);
+            JFrame frameHistorico = new JFrame("Histórico de Prompts");
+            frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            JScrollPane scroll = new JScrollPane(tabelaHistorico);
+            frameHistorico.getContentPane().add(scroll);
+            frameHistorico.pack();
+            frameHistorico.setLocationRelativeTo(null);
+            frameHistorico.setVisible(true);
+
+            tabelaHistorico.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent evt) {
+                    int row = tabelaHistorico.rowAtPoint(evt.getPoint());
+                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
+
+                    if (row >= 0) {
+                        Object nome = tabelaHistorico.getValueAt(row, 0);
+                        Object data = tabelaHistorico.getValueAt(row, 1);
+                        Object resposta = tabelaHistorico.getValueAt(row, 2);
+
+                        Documentacao.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
+                        frameHistorico.dispose();
+                    }
+                }
+            });
+
         } catch (SQLException er){
             er.printStackTrace();
         } catch (Exception er){
             throw new RuntimeException(er);
         }
     }//GEN-LAST:event_Historico
+
+    
+    private void Documentacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Documentacao
+        Connection con = ConnectionDB.connectDB();
+        Prompt prompt = new Prompt();
+        
+        try{
+        prompt.Document(Documentacao.getText());
+        jTextArea2.setText(prompt.respostaBot());
+        ConnectionDB.insertDB(con, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+                }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Error generating documentation");
+            System.out.println("Error: "+ e.getMessage());
+            
+        }
+        
+        
+        jTextArea2.setText(prompt.respostaBot());
+        
+    }//GEN-LAST:event_Documentacao
 
     /**
      * @param args the command line arguments
@@ -335,8 +369,10 @@ public class UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Documentacao;
     private javax.swing.JButton Historico;
     private javax.swing.JButton Sugestão;
+    private javax.swing.JToggleButton document;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -344,7 +380,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
