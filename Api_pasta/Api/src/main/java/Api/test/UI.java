@@ -25,6 +25,7 @@ import javax.swing.table.TableColumnModel;
  *
  * @author Ryan
  */
+
 public class UI extends javax.swing.JFrame {
     public char ia;
     public int op;
@@ -63,6 +64,7 @@ public class UI extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         Historico = new javax.swing.JButton();
         document = new javax.swing.JToggleButton();
+        carregarArquivo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bot Echo IDE");
@@ -133,6 +135,13 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        carregarArquivo.setText("Carregar Arquivo");
+        carregarArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carregarArquivoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,7 +155,9 @@ public class UI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(212, 212, 212))
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -155,8 +166,11 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(document, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(carregarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -183,7 +197,9 @@ public class UI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                        .addGap(32, 32, 32)
+                        .addGap(3, 3, 3)
+                        .addComponent(carregarArquivo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
                 .addGap(22, 22, 22))
         );
@@ -193,49 +209,49 @@ public class UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Análise(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Análise
-    Prompt prompt = new Prompt();
-    Connection conn = ConnectionDB.connectDB();
-    
-    try {
-        prompt.Analise(Documentacao.getText());
-        jTextArea2.setText(prompt.respostaBot());
-        
-        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
-    } catch (Exception e) {
-        e.printStackTrace(); // Print error details
-        System.out.print("An error occurred: " + e.getMessage());
-    }
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Analise(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
     }//GEN-LAST:event_Análise
 
     private void Explicação(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Explicação
-    Prompt prompt = new Prompt();
-    Connection conn = ConnectionDB.connectDB();
-    
-    try {
-        prompt.Explicacao(Documentacao.getText());
-        jTextArea2.setText(prompt.respostaBot());
-        
-        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
-    } catch (Exception e) {
-        e.printStackTrace(); // Print error details
-        System.out.print("An error occurred: " + e.getMessage());
-    }
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Explicacao(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
     }//GEN-LAST:event_Explicação
-    
+
     private void Sugestao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sugestao
-    Prompt prompt = new Prompt();
-    Connection conn = ConnectionDB.connectDB();
-    
-    try {
-        prompt.Sugestao(Documentacao.getText());
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Sugestao(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
         jTextArea2.setText(prompt.respostaBot());
-        
-        ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
-    } catch (Exception e) {
-        e.printStackTrace(); // Print error details
-        System.out.print("An error occurred: " + e.getMessage());
-    }
-    jTextArea2.setText(prompt.respostaBot());
     }//GEN-LAST:event_Sugestao
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -249,11 +265,11 @@ public class UI extends javax.swing.JFrame {
 
         try {
             String[] opcoes = {"Análise", "Explicação", "Sugestão"};
-            String[] colunas = new String[] {
+            String[] colunas = new String[]{
                 "Nome", "Data", "Resposta", "Tipo"
             };
 
-            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
+            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
 
             if (op == 0) {
                 ia = 'A';
@@ -266,7 +282,7 @@ public class UI extends javax.swing.JFrame {
             }
 
             DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
-            ArrayList<Object []> historico = ConnectionDB.selectDB(conn, ia);
+            ArrayList<Object[]> historico = ConnectionDB.selectDB(conn, ia);
 
             for (Object[] h : historico) {
                 tabelaHist.addRow(h);
@@ -304,74 +320,94 @@ public class UI extends javax.swing.JFrame {
                 }
             });
 
-        } catch (SQLException er){
+        } catch (SQLException er) {
             er.printStackTrace();
-        } catch (Exception er){
+        } catch (Exception er) {
             throw new RuntimeException(er);
         }
     }//GEN-LAST:event_Historico
 
-    
+
     private void Documentacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Documentacao
         Connection con = ConnectionDB.connectDB();
         Prompt prompt = new Prompt();
-        
-        try{
-        prompt.Document(Documentacao.getText());
-        jTextArea2.setText(prompt.respostaBot());
-        ConnectionDB.insertDB(con, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
-                }
-        catch(Exception e){
+
+        try {
+            prompt.Document(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+            ConnectionDB.insertDB(con, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error generating documentation");
-            System.out.println("Error: "+ e.getMessage());
-            
+            System.out.println("Error: " + e.getMessage());
+
         }
-        
-        
+
         jTextArea2.setText(prompt.respostaBot());
-        
+
     }//GEN-LAST:event_Documentacao
 
+    private void carregarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarArquivoActionPerformed
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+    int result = fileChooser.showOpenDialog(this);
+    
+    if (result == javax.swing.JFileChooser.APPROVE_OPTION) {
+        java.io.File file = fileChooser.getSelectedFile();
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(file))) {
+            StringBuilder conteudo = new StringBuilder();
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                conteudo.append(linha).append("\n");
+            }
+            Documentacao.setText(conteudo.toString());
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao carregar arquivo: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_carregarArquivoActionPerformed
+
     /**
-     * @param args the command line arguments
+     * @param args the command line  
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UI().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new UI().setVisible(true);
+        }
+    });
+}
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Documentacao;
     private javax.swing.JButton Historico;
     private javax.swing.JButton Sugestão;
+    private javax.swing.JButton carregarArquivo;
     private javax.swing.JToggleButton document;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
