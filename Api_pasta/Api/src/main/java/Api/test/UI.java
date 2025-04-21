@@ -25,6 +25,7 @@ public class UI extends javax.swing.JFrame {
     public char ia;
     public int op;
     private String ut; 
+    private java.io.File currentFile;
     
     /**
      * Creates new form UI
@@ -404,10 +405,11 @@ public class UI extends javax.swing.JFrame {
     int result = fileChooser.showOpenDialog(this);
     
     if (result == javax.swing.JFileChooser.APPROVE_OPTION) {
-        java.io.File file = fileChooser.getSelectedFile();
-        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(file))) {
+        this.currentFile = fileChooser.getSelectedFile();
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(this.currentFile))) {
             StringBuilder conteudo = new StringBuilder();
             String linha;
+            setTitle("Bot Echo IDE - " + this.currentFile.getName());
             while ((linha = reader.readLine()) != null) {
                 conteudo.append(linha).append("\n");
             }
@@ -419,45 +421,82 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        if (this.currentFile == null) {
+            jMenuItem3ActionPerformed(evt);
+        } else {
+            try (java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter(this.currentFile))) {
+                writer.write(Documentacao.getText());
+                javax.swing.JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso!");
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Erro ao salvar arquivo: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            @Override
+            public boolean accept(java.io.File f) {
+                return f.isDirectory() || f.getName().endsWith(".py");
+            }
+            @Override
+            public String getDescription() {
+                return "Python File (*.py)";
+            }
+        });
+        int result = fileChooser.showSaveDialog(this);
+        if (result == javax.swing.JFileChooser.APPROVE_OPTION) {
+            this.currentFile = fileChooser.getSelectedFile();
+            if (!this.currentFile.getName().endsWith(".py")) {
+              this.currentFile = new java.io.File(this.currentFile.getParent(),this.currentFile.getName() + ".py");
+            }
 
+            if (this.currentFile.exists()) {
+                int overwrite = javax.swing.JOptionPane.showConfirmDialog(this,
+                        "O arquivo já existe. Deseja substituí-lo?",
+                        "Confirmar", javax.swing.JOptionPane.YES_NO_OPTION);
+                if (overwrite != javax.swing.JOptionPane.YES_OPTION) {
+                    return;
+                }
+            }
+
+            try (java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter(this.currentFile))) {
+                writer.write(Documentacao.getText());
+                setTitle("Bot Echo IDE - " + this.currentFile.getName());
+                javax.swing.JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso!");
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Erro ao salvar arquivo: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+          
+            
     /**
      * @param args the command line  
      */
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
 
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
-            new UI().setVisible(true);
-        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UI().setVisible(true);
+            }
     });
 }
 
