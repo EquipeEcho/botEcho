@@ -55,11 +55,8 @@ public class UI extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         Documentacao = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        Sugestão = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         Historico = new javax.swing.JButton();
@@ -70,9 +67,12 @@ public class UI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        analise = new javax.swing.JMenuItem();
+        explicacao = new javax.swing.JMenuItem();
+        sugestao = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -88,34 +88,10 @@ public class UI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Documentacao);
         Documentacao.getAccessibleContext().setAccessibleName("areaUsuario");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Análise");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Análise(evt);
-            }
-        });
-
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
-
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("Explicação");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Explicação(evt);
-            }
-        });
-
-        Sugestão.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Sugestão.setText("Sugestão");
-        Sugestão.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Sugestao(evt);
-            }
-        });
 
         jButton3.setText("Run");
         jButton3.setMaximumSize(new java.awt.Dimension(94, 24));
@@ -164,9 +140,6 @@ public class UI extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenu3.setText("Abrir recente");
-        jMenu1.add(jMenu3);
-
         jMenuItem2.setText("Salvar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +157,34 @@ public class UI extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu5.setText("Inteligência Artificial (IA)");
+
+        analise.setText("Realizar análise");
+        analise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                analiseActionPerformed(evt);
+            }
+        });
+        jMenu5.add(analise);
+
+        explicacao.setText("Gerar explicação");
+        explicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                explicacaoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(explicacao);
+
+        sugestao.setText("Sugestões de melhoria");
+        sugestao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sugestaoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(sugestao);
+
+        jMenuBar1.add(jMenu5);
 
         jMenu2.setText("Ajuda");
         jMenuBar1.add(jMenu2);
@@ -207,9 +208,6 @@ public class UI extends javax.swing.JFrame {
                             .addContainerGap()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(Historico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Sugestão, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(document, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -237,22 +235,15 @@ public class UI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Sugestão)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Historico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(document)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,55 +251,11 @@ public class UI extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        getAccessibleContext().setAccessibleName("BotEcho IDE");
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Análise(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Análise
-        Prompt prompt = new Prompt();
-        Connection conn = ConnectionDB.connectDB();
-
-        try {
-            prompt.Analise(Documentacao.getText());
-            jTextArea2.setText(prompt.respostaBot());
-
-            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
-        } catch (Exception e) {
-            e.printStackTrace(); // Print error details
-            System.out.print("An error occurred: " + e.getMessage());
-        }
-    }//GEN-LAST:event_Análise
-
-    private void Explicação(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Explicação
-        Prompt prompt = new Prompt();
-        Connection conn = ConnectionDB.connectDB();
-
-        try {
-            prompt.Explicacao(Documentacao.getText());
-            jTextArea2.setText(prompt.respostaBot());
-
-            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
-        } catch (Exception e) {
-            e.printStackTrace(); // Print error details
-            System.out.print("An error occurred: " + e.getMessage());
-        }
-    }//GEN-LAST:event_Explicação
-
-    private void Sugestao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sugestao
-        Prompt prompt = new Prompt();
-        Connection conn = ConnectionDB.connectDB();
-
-        try {
-            prompt.Sugestao(Documentacao.getText());
-            jTextArea2.setText(prompt.respostaBot());
-
-            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
-        } catch (Exception e) {
-            e.printStackTrace(); // Print error details
-            System.out.print("An error occurred: " + e.getMessage());
-        }
-        jTextArea2.setText(prompt.respostaBot());
-    }//GEN-LAST:event_Sugestao
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ExecPy ep = new ExecPy();
@@ -473,6 +420,52 @@ public class UI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void analiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analiseActionPerformed
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Analise(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
+    }//GEN-LAST:event_analiseActionPerformed
+
+    private void explicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_explicacaoActionPerformed
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Explicacao(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
+    }//GEN-LAST:event_explicacaoActionPerformed
+
+    private void sugestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sugestaoActionPerformed
+        Prompt prompt = new Prompt();
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            prompt.Sugestao(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace(); // Print error details
+            System.out.print("An error occurred: " + e.getMessage());
+        }
+        jTextArea2.setText(prompt.respostaBot());
+    }//GEN-LAST:event_sugestaoActionPerformed
           
             
     /**
@@ -508,10 +501,9 @@ public class UI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Documentacao;
     private javax.swing.JButton Historico;
-    private javax.swing.JButton Sugestão;
+    private javax.swing.JMenuItem analise;
     private javax.swing.JToggleButton document;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JMenuItem explicacao;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -519,8 +511,8 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -528,5 +520,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JMenuItem sugestao;
     // End of variables declaration//GEN-END:variables
 }
