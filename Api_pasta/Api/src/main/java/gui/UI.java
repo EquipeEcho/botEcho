@@ -267,7 +267,7 @@ public class UI extends javax.swing.JFrame {
         Connection conn = ConnectionDB.connectDB();
 
         try {
-            String[] opcoes = {"Análise", "Explicação", "Sugestão"};
+            String[] opcoes = {"Análise", "Explicação", "Sugestão", "Documentação"};
             String[] colunas = new String[]{
                 "Nome", "Data", "Resposta", "Tipo"
             };
@@ -280,6 +280,8 @@ public class UI extends javax.swing.JFrame {
                 ia = 'E';
             } else if (op == 2) {
                 ia = 'S';
+            } else if (op == 3){
+                ia = 'D';
             } else if (op == JOptionPane.CLOSED_OPTION) {
                 return;
             }
@@ -332,13 +334,13 @@ public class UI extends javax.swing.JFrame {
 
 
     private void Documentacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Documentacao
-        Connection con = ConnectionDB.connectDB();
+        Connection conn = ConnectionDB.connectDB();
         Prompt prompt = new Prompt();
 
         try {
             prompt.Document(Documentacao.getText());
             jTextArea2.setText(prompt.respostaBot());
-            ConnectionDB.insertDB(con, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error generating documentation");
