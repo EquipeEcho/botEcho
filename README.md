@@ -1,6 +1,6 @@
 # Equipe Echo - Aprendizado por Projeto Integrado (API)
 
-Projeto de dessenvolvimento de IDE voltado para aprendizado de Dessevolvimento de graficos com python junto com Matplotlib, com auxílio de IA
+Projeto de dessenvolvimento de IDE voltado para aprendizado e de desenvolvimento de gráficos com python, junto com Matplotlib, com auxílio de IA.
 
 
 # Índice
@@ -18,7 +18,7 @@ Uso de estratégias para entender o problema, conceber uma solução viável ao 
 Sprint | Previsão | Status|
 |------|--------|------|
 |<p style="text-align">Kick Off |<p style="text-align"> 24/02 - 28/02 | <p style="text-align"> Concluído |
-|<p style="text-align">Sprint 1 |<p style="text-align"> 10/03 - 30/03 |<p style="text-align"> Concluído |
+|<p style="text-align">[Sprint 1](https://github.com/EquipeEcho/botEcho/tree/main) |<p style="text-align"> 10/03 - 30/03 |<p style="text-align"> Concluído |
 |<p style="text-align">Sprint 2|<p style="text-align">07/04 - 27/04|<p style="text-align">Em andamento|
 |<p style="text-align">Sprint 3|<p style="text-align"> 05/05 - 25/05 |<p style="text-align">Não iniciada|
 |<p style="text-align">Feira de Soluções |<p style="text-align"> 29/05 |<p style="text-align">Não iniciada|
