@@ -59,8 +59,6 @@ public class UI extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        Historico = new javax.swing.JButton();
-        document = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -73,6 +71,9 @@ public class UI extends javax.swing.JFrame {
         analise = new javax.swing.JMenuItem();
         explicacao = new javax.swing.JMenuItem();
         sugestao = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -99,22 +100,6 @@ public class UI extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
-            }
-        });
-
-        Historico.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Historico.setText("Histórico");
-        Historico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Historico(evt);
-            }
-        });
-
-        document.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        document.setText("Documentação");
-        document.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Documentacao(evt);
             }
         });
 
@@ -184,7 +169,27 @@ public class UI extends javax.swing.JFrame {
         });
         jMenu5.add(sugestao);
 
+        jMenuItem5.setText("Gerar documentação");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
         jMenuBar1.add(jMenu5);
+
+        jMenu3.setText("Histórico");
+
+        jMenuItem4.setText("Gerar histórico");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Ajuda");
         jMenuBar1.add(jMenu2);
@@ -197,18 +202,12 @@ public class UI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Historico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(document, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -235,9 +234,6 @@ public class UI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Historico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(document)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -263,94 +259,6 @@ public class UI extends javax.swing.JFrame {
         jTextArea2.setText(ep.getRes());
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void Historico(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Historico
-        Connection conn = ConnectionDB.connectDB();
-
-        try {
-            String[] opcoes = {"Análise", "Explicação", "Sugestão", "Documentação"};
-            String[] colunas = new String[]{
-                "Nome", "Data", "Resposta", "Tipo"
-            };
-
-            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
-
-            if (op == 0) {
-                ia = 'A';
-            } else if (op == 1) {
-                ia = 'E';
-            } else if (op == 2) {
-                ia = 'S';
-            } else if (op == 3){
-                ia = 'D';
-            } else if (op == JOptionPane.CLOSED_OPTION) {
-                return;
-            }
-
-            DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
-            ArrayList<Object[]> historico = ConnectionDB.selectDB(conn, ia);
-
-            for (Object[] h : historico) {
-                tabelaHist.addRow(h);
-            }
-
-            JTable tabelaHistorico = new JTable(tabelaHist);
-            tabelaHistorico.setRowHeight(20);
-            TableColumnModel columnModel = tabelaHistorico.getColumnModel();
-            columnModel.getColumn(0).setWidth(100);
-            columnModel.getColumn(1).setPreferredWidth(60);
-            columnModel.getColumn(2).setPreferredWidth(250);
-            columnModel.getColumn(3).setPreferredWidth(10);
-            JFrame frameHistorico = new JFrame("Histórico de Prompts");
-            frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            JScrollPane scroll = new JScrollPane(tabelaHistorico);
-            frameHistorico.getContentPane().add(scroll);
-            frameHistorico.pack();
-            frameHistorico.setLocationRelativeTo(null);
-            frameHistorico.setVisible(true);
-
-            tabelaHistorico.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent evt) {
-                    int row = tabelaHistorico.rowAtPoint(evt.getPoint());
-                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
-
-                    if (row >= 0) {
-                        Object nome = tabelaHistorico.getValueAt(row, 0);
-                        Object data = tabelaHistorico.getValueAt(row, 1);
-                        Object resposta = tabelaHistorico.getValueAt(row, 2);
-
-                        Documentacao.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
-                        frameHistorico.dispose();
-                    }
-                }
-            });
-
-        } catch (SQLException er) {
-            er.printStackTrace();
-        } catch (Exception er) {
-            throw new RuntimeException(er);
-        }
-    }//GEN-LAST:event_Historico
-
-
-    private void Documentacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Documentacao
-        Connection conn = ConnectionDB.connectDB();
-        Prompt prompt = new Prompt();
-
-        try {
-            prompt.Document(Documentacao.getText());
-            jTextArea2.setText(prompt.respostaBot());
-            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error generating documentation");
-            System.out.println("Error: " + e.getMessage());
-
-        }
-
-        jTextArea2.setText(prompt.respostaBot());
-
-    }//GEN-LAST:event_Documentacao
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
@@ -468,6 +376,93 @@ public class UI extends javax.swing.JFrame {
         }
         jTextArea2.setText(prompt.respostaBot());
     }//GEN-LAST:event_sugestaoActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Connection conn = ConnectionDB.connectDB();
+
+        try {
+            String[] opcoes = {"Análise", "Explicação", "Sugestão", "Documentação"};
+            String[] colunas = new String[]{
+                "Nome", "Data", "Resposta", "Tipo"
+            };
+
+            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
+
+            if (op == 0) {
+                ia = 'A';
+            } else if (op == 1) {
+                ia = 'E';
+            } else if (op == 2) {
+                ia = 'S';
+            } else if (op == 3){
+                ia = 'D';
+            } else if (op == JOptionPane.CLOSED_OPTION) {
+                return;
+            }
+
+            DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
+            ArrayList<Object[]> historico = ConnectionDB.selectDB(conn, ia);
+
+            for (Object[] h : historico) {
+                tabelaHist.addRow(h);
+            }
+
+            JTable tabelaHistorico = new JTable(tabelaHist);
+            tabelaHistorico.setRowHeight(20);
+            TableColumnModel columnModel = tabelaHistorico.getColumnModel();
+            columnModel.getColumn(0).setWidth(100);
+            columnModel.getColumn(1).setPreferredWidth(60);
+            columnModel.getColumn(2).setPreferredWidth(250);
+            columnModel.getColumn(3).setPreferredWidth(10);
+            JFrame frameHistorico = new JFrame("Histórico de Prompts");
+            frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            JScrollPane scroll = new JScrollPane(tabelaHistorico);
+            frameHistorico.getContentPane().add(scroll);
+            frameHistorico.pack();
+            frameHistorico.setLocationRelativeTo(null);
+            frameHistorico.setVisible(true);
+
+            tabelaHistorico.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent evt) {
+                    int row = tabelaHistorico.rowAtPoint(evt.getPoint());
+                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
+
+                    if (row >= 0) {
+                        Object nome = tabelaHistorico.getValueAt(row, 0);
+                        Object data = tabelaHistorico.getValueAt(row, 1);
+                        Object resposta = tabelaHistorico.getValueAt(row, 2);
+
+                        Documentacao.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
+                        frameHistorico.dispose();
+                    }
+                }
+            });
+
+        } catch (SQLException er) {
+            er.printStackTrace();
+        } catch (Exception er) {
+            throw new RuntimeException(er);
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Connection conn = ConnectionDB.connectDB();
+        Prompt prompt = new Prompt();
+
+        try {
+            prompt.Document(Documentacao.getText());
+            jTextArea2.setText(prompt.respostaBot());
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error generating documentation");
+            System.out.println("Error: " + e.getMessage());
+
+        }
+
+        jTextArea2.setText(prompt.respostaBot());
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
           
             
     /**
@@ -502,9 +497,7 @@ public class UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Documentacao;
-    private javax.swing.JButton Historico;
     private javax.swing.JMenuItem analise;
-    private javax.swing.JToggleButton document;
     private javax.swing.JMenuItem explicacao;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -513,12 +506,15 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
