@@ -8,17 +8,20 @@ import dao.ConnectionDB;
 import dao.DateTime;
 import Api.test.ExecPy;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +32,8 @@ public class UI extends javax.swing.JFrame {
     public int op;
     private String ut; 
     private java.io.File currentFile;
+    private JTextArea box = new JTextArea();
+    private JTextArea box1 = new JTextArea();
     
     /**
      * Creates new form UI
@@ -39,6 +44,17 @@ public class UI extends javax.swing.JFrame {
         getContentPane().setBackground(new Color(0,49,83));
         ImageIcon icone = new ImageIcon("bender.png");
         jLabel3.setIcon(icone);
+        /*------------------------------------------------------------------------------------------------------------------*/
+        /*Numeracao de linhas e bordas*/
+        this.box.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Color.LIGHT_GRAY));
+        this.box.setColumns(4);
+        this.box.setEditable(false);
+        this.box.setFont(new Font("Arial", Font.PLAIN, 14));
+        this.box1.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Color.LIGHT_GRAY));
+        this.box1.setColumns(4);
+        this.box1.setEditable(false);
+        this.box1.setFont(new Font("Arial", Font.PLAIN, 14));
+        /*------------------------------------------------------------------------------------------------------------------*/
                 
     }    
     
@@ -54,7 +70,7 @@ public class UI extends javax.swing.JFrame {
 
         jMenu4 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Documentacao = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -83,15 +99,25 @@ public class UI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 102, 102));
         setForeground(java.awt.Color.blue);
 
-        Documentacao.setColumns(20);
-        Documentacao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Documentacao.setRows(5);
-        jScrollPane1.setViewportView(Documentacao);
-        Documentacao.getAccessibleContext().setAccessibleName("areaUsuario");
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextArea1CaretUpdate(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea1.getAccessibleContext().setAccessibleName("areaUsuario");
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea2.setRows(5);
+        jTextArea2.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextArea2CaretUpdate(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton3.setText("Run");
@@ -234,7 +260,6 @@ public class UI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -255,7 +280,7 @@ public class UI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ExecPy ep = new ExecPy();
-        ep.exec(Documentacao.getText());
+        ep.exec(jTextArea1.getText());
         jTextArea2.setText(ep.getRes());
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -273,7 +298,7 @@ public class UI extends javax.swing.JFrame {
             while ((linha = reader.readLine()) != null) {
                 conteudo.append(linha).append("\n");
             }
-            Documentacao.setText(conteudo.toString());
+            jTextArea1.setText(conteudo.toString());
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao carregar arquivo: " + e.getMessage());
         }
@@ -285,7 +310,7 @@ public class UI extends javax.swing.JFrame {
             jMenuItem3ActionPerformed(evt);
         } else {
             try (java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter(this.currentFile))) {
-                writer.write(Documentacao.getText());
+                writer.write(jTextArea1.getText());
                 javax.swing.JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso!");
             } catch (Exception e) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Erro ao salvar arquivo: " + e.getMessage());
@@ -322,7 +347,7 @@ public class UI extends javax.swing.JFrame {
             }
 
             try (java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter(this.currentFile))) {
-                writer.write(Documentacao.getText());
+                writer.write(jTextArea1.getText());
                 setTitle("Bot Echo IDE - " + this.currentFile.getName());
                 javax.swing.JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso!");
             } catch (Exception e) {
@@ -336,7 +361,7 @@ public class UI extends javax.swing.JFrame {
         Connection conn = ConnectionDB.connectDB();
 
         try {
-            prompt.Analise(Documentacao.getText());
+            prompt.Analise(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
             ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
@@ -351,7 +376,7 @@ public class UI extends javax.swing.JFrame {
         Connection conn = ConnectionDB.connectDB();
 
         try {
-            prompt.Explicacao(Documentacao.getText());
+            prompt.Explicacao(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
             ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
@@ -366,7 +391,7 @@ public class UI extends javax.swing.JFrame {
         Connection conn = ConnectionDB.connectDB();
 
         try {
-            prompt.Sugestao(Documentacao.getText());
+            prompt.Sugestao(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
             ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
@@ -433,7 +458,7 @@ public class UI extends javax.swing.JFrame {
                         Object data = tabelaHistorico.getValueAt(row, 1);
                         Object resposta = tabelaHistorico.getValueAt(row, 2);
 
-                        Documentacao.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
+                        jTextArea1.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
                         frameHistorico.dispose();
                     }
                 }
@@ -451,7 +476,7 @@ public class UI extends javax.swing.JFrame {
         Prompt prompt = new Prompt();
 
         try {
-            prompt.Document(Documentacao.getText());
+            prompt.Document(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
             ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
         } catch (Exception e) {
@@ -463,6 +488,40 @@ public class UI extends javax.swing.JFrame {
 
         jTextArea2.setText(prompt.respostaBot());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jTextArea1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextArea1CaretUpdate
+      int x,y = 1,c = 1;
+        x = jTextArea1.getLineCount();
+        StringBuilder sb = new StringBuilder();
+        sb.append(" "+c);
+        this.box.setText(sb.toString());
+        jScrollPane1.setRowHeaderView(this.box);
+        if(x != 1){
+        while (x != y){
+            c+=1;
+            sb.append("\n").append(" "+c);
+            this.box.setText(sb.toString());
+            jScrollPane1.setRowHeaderView(this.box);
+            y+=1;
+        }}
+    }//GEN-LAST:event_jTextArea1CaretUpdate
+
+    private void jTextArea2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextArea2CaretUpdate
+       int x,y = 1,c = 1;
+        x = jTextArea1.getLineCount();
+        StringBuilder sb = new StringBuilder();
+        sb.append("  "+c);
+        this.box.setText(sb.toString());
+        jScrollPane1.setRowHeaderView(this.box);
+        if(x != 1){
+        while (x != y){
+            c+=1;
+            sb.append("\n").append(" "+c);
+            this.box.setText(sb.toString());
+            jScrollPane1.setRowHeaderView(this.box);
+            y+=1;
+        }}
+    }//GEN-LAST:event_jTextArea2CaretUpdate
           
             
     /**
@@ -496,7 +555,6 @@ public class UI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea Documentacao;
     private javax.swing.JMenuItem analise;
     private javax.swing.JMenuItem explicacao;
     private javax.swing.JButton jButton3;
@@ -517,6 +575,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JMenuItem sugestao;
     // End of variables declaration//GEN-END:variables
