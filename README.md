@@ -1,6 +1,8 @@
-# Projeto IDE - Equipe Echo
+# Projeto IDE - Equipe Echo (Sprint 2)
 
 Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código e geração de gráficos com Python e Matplotlib.
+
+> 🔹 **Este README refere-se à documentação da Sprint 2 do projeto.**
 
 ## 🔍 Navegação
 - [Sobre o Projeto](#sobre-o-projeto)
@@ -13,6 +15,14 @@ Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código 
 
 # Sobre o Projeto
 Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrado), com foco na resolução de problemas reais, mentalidade ágil e validação externa. O objetivo é criar uma IDE que auxilie desenvolvedores no aprimoramento de código, com ênfase em eficiência e boas práticas.
+
+**Objetivo da Sprint 2:**
+
+- Implementar a execução de código dentro da IDE.
+- Iniciar a geração automática de documentação por Inteligência Artificial.
+- Aprimorar a organização de arquivos utilizando conceitos de Programação Orientada a Objetos (POO).
+- Ajustar integração e melhorias no banco de dados.
+- Melhorar funcionalidades de interface, como histórico de resposta e carregamento de arquivos.
 
 # Planejamento de Sprints
 
