@@ -1,4 +1,4 @@
-# Projeto IDE - Equipe Echo (Sprint 2)
+# Projeto BotEcho - Equipe Echo (Sprint 2)
 
 Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código e geração de gráficos com Python e Matplotlib.
 
@@ -72,7 +72,8 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 
 # Competências Desenvolvidas
 
-## Hard Skills
+<details>
+<summary><strong>Hard Skills</strong></summary>
 
 | Tecnologia/Metodologia | Nível |
 | ---------------------- | ----- |
@@ -82,7 +83,10 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 | Product Owner | ★★★★★★★★☆☆ |
 | Git Projects | ★★★★★★★★★★ |
 
-## Soft Skills
+</details>
+
+<details>
+<summary><strong>Soft Skills</strong></summary>
 
 | Habilidade | Nível |
 | ---------- | ----- |
@@ -92,6 +96,8 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 | Gerenciamento de Tempo | ★★★★★★★★★☆ |
 | Adaptabilidade | ★★★★★★☆☆☆☆ |
 | Resiliência | ★★★★★★★★☆☆ |
+
+</details>
 
 # Equipe
 
