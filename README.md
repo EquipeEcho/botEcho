@@ -41,8 +41,8 @@ Uso de estratégias para entender o problema, conceber uma solução viável ao 
 | II | 1 | Alta | Como desenvolvedor, quero que explique partes do código para que eu entenda melhor trechos complexos. | 8 |
 | III | 2 | Média | Como desenvolvedor, quero executar meu código diretamente na IDE para testar rapidamente. | 5 |
 | IV | 2 | Média | Como desenvolvedor, quero gerar documentações de código automaticamente. | 5 |
-| V | 1 e 2 | Média | Como desenvolvedor, quero ver recomendações de boas práticas dentro do editor. | 5 |
-| VI | 1 e 2 | Baixa | Como desenvolvedor, quero personalizar a interface da IDE. | 3 |
+| V | 2 | Média | Como desenvolvedor, quero ver recomendações de boas práticas dentro do editor. | 5 |
+| VI | 2 e 3 | Baixa | Como desenvolvedor, quero personalizar a interface da IDE. | 3 |
 | VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos para que a IDE os analise. | 3 |
 
 # Sprint Backlog
