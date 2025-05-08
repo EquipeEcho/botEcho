@@ -37,13 +37,14 @@ Uso de estratégias para entender o problema, conceber uma solução viável ao 
 
 | ID | Sprint | Prioridade | User Story | Estimativa (Planning Poker) |
 |:--:|:------:|:----------:|------------|:---------------------------:|
-| I | 1 | Alta | Como desenvolvedor, quero que a IDE analise e sugira otimizações no meu código para melhorar a performance. | 8 |
-| II | 1 | Alta | Como desenvolvedor, quero que explique partes do código para que eu entenda melhor trechos complexos. | 8 |
-| III | 2 | Média | Como desenvolvedor, quero executar meu código diretamente na IDE para testar rapidamente. | 5 |
-| IV | 2 | Média | Como desenvolvedor, quero gerar documentações de código automaticamente. | 5 |
-| V | 2 | Média | Como desenvolvedor, quero ver recomendações de boas práticas dentro do editor. | 5 |
-| VI | 2 e 3 | Baixa | Como desenvolvedor, quero personalizar a interface da IDE. | 3 |
-| VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos para que a IDE os analise. | 3 |
+| I | 1 | Alta | Como desenvolvedor, quero que o sistema analise e otimize meu código automaticamente, para melhorar o desempenho e a legibilidade. | 8 |
+| II | 1 | Alta | Como desenvolvedor, quero que o sistema explique trechos de código, para entender rapidamente o que eles fazem. | 8 |
+| III | 2 | Média | Como desenvolvedor, quero executar meu código diretamente na IDE, para testar funcionalidades sem precisar alternar de ambiente. | 5 |
+| IV | 2 | Média | Como desenvolvedor, quero que a documentação do código seja gerada automaticamente, para poupar tempo e garantir padronização. | 5 |
+| V | 2 | Média | Como desenvolvedor, quero receber recomendações de boas práticas de programação, para melhorar a qualidade do meu código. | 5 |
+| VI | 2 e 3 | Baixa |Como usuário, quero personalizar a interface da IDE, para ter uma experiência mais confortável e adaptada às minhas preferências. | 3 |
+| VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos na IDE para análise, para facilitar a revisão e o trabalho com diferentes projetos. | 3 |
+| VII | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 8 |
 
 # Sprint Backlog
 
