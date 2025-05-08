@@ -42,8 +42,8 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 | II | 1 | Alta | Explicação de trechos de código. | 8 |
 | III | 2 | Média | Execução de código diretamente na IDE. | 5 |
 | IV | 2 | Média | Geração automática de documentação. | 5 |
-| V | 1 e 2 | Média | Recomendações de boas práticas. | 5 |
-| VI | 1 e 2 | Baixa | Personalização de interface. | 3 |
+| V | 2 | Média | Recomendações de boas práticas. | 5 |
+| VI | 2 e 3 | Baixa | Personalização de interface. | 3 |
 | VII | 2 | Baixa | Carregamento de arquivos para análise. | 3 |
 
 # Sprint Backlog
