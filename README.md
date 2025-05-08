@@ -22,7 +22,7 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 - Iniciar a geração automática de documentação por Inteligência Artificial.
 - Aprimorar a organização de arquivos utilizando conceitos de Programação Orientada a Objetos (POO).
 - Ajustar integração e melhorias no banco de dados.
-- Melhorar funcionalidades de interface, como histórico de resposta e carregamento de arquivos.
+- Melhorar funcionalidades de interface, como histórico de resposta, salvamento e carregamento de arquivos.
 
 # Planejamento de Sprints
 
