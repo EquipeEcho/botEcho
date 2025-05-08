@@ -31,7 +31,7 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 | Kick Off | 24/02 - 28/02 | Concluído |
 | [Sprint 1](https://github.com/EquipeEcho/botEcho/tree/main) | 10/03 - 30/03 | Concluído |
 | [Sprint 2](https://github.com/EquipeEcho/botEcho/tree/botEcho.S2) | 07/04 - 27/04 | Concluído |
-| Sprint 3 | 05/05 - 25/05 | Não iniciada |
+| Sprint 3 | 05/05 - 25/05 | Iniciada |
 | Feira de Soluções | 29/05 | Não iniciada |
 
 # Backlog do Produto
