@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Api.test;
+package gui;
 
+import dao.ConnectionDB;
 import io.github.ollama4j.OllamaAPI;
 import io.github.ollama4j.models.response.OllamaResult;
 import io.github.ollama4j.utils.OptionsBuilder;
@@ -84,7 +85,7 @@ public class Prompt {
     
     public void Explicacao(String resposta) throws Exception {
         ConnectionDB.connectDB();
-        ollamaAPI.setRequestTimeoutSeconds(120);
+        ollamaAPI.setRequestTimeoutSeconds(500);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
                         .addLine("Você é uma IA especialista em Python e matplotlib")
@@ -122,7 +123,7 @@ public class Prompt {
     
     public void Sugestao(String resposta) throws Exception {
         ConnectionDB.connectDB();
-        ollamaAPI.setRequestTimeoutSeconds(360);
+        ollamaAPI.setRequestTimeoutSeconds(500);
         PromptBuilder promptBuilder =
                 new PromptBuilder()
                         .addLine("Interprete o seguinte código python:\n" + resposta)
@@ -136,6 +137,23 @@ public class Prompt {
         
         this.respostaBot = response.getResponse();
     }
+    
+    public void Document(String resposta) throws Exception{
+    ConnectionDB.connectDB();
+    ollamaAPI.setRequestTimeoutSeconds(500);
+    String promptIA = "Faça a documentação do seguinte código Python com comentários e docstrings:\n"+resposta;
+    String erro = "Caso haja algum erro, apenas retorne o erro encontrado";
+    PromptBuilder promptBuilder = new PromptBuilder()
+            .addLine(promptIA)
+            .addSeparator();
+    
+    
+    boolean raw = false;
+    OllamaResult response = ollamaAPI.generate("qwen2.5-coder:7b", promptBuilder.build(), raw, new OptionsBuilder().build());
+        
+        
+    this.respostaBot = response.getResponse();
+    }
 
     public String respostaBot (){
     return this.respostaBot;
@@ -143,7 +161,7 @@ public class Prompt {
     
     public Boolean Utilidade() throws Exception{
         String[] opcoes = {"Sim", "Não"};
-        int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.QUESTION_MESSAGE, null, opcoes, 1);
+        int u = JOptionPane.showOptionDialog(null, "Essa resposta foi útil para você?", "Feedback", JOptionPane.DEFAULT_OPTION,  JOptionPane.PLAIN_MESSAGE, null, opcoes, 1);
         if (u == 0) {
             return true;
         } else {
@@ -155,4 +173,5 @@ public class Prompt {
         String nome = JOptionPane.showInputDialog("Nome para o arquivo: ");
         return nome;
     }
+    
 }
