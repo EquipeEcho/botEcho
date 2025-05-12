@@ -7,7 +7,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<<< HEAD:Api_pasta/Api/src/main/java/dao/Dao.java
 import java.sql.SQLException;
+========
+>>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f:Api_pasta/Api/src/main/java/dao/ConnectionDB.java
 import java.util.ArrayList;
 
 /**

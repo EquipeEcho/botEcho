@@ -5,7 +5,10 @@
 package gui;
 
 import dao.ConnectionDB;
+<<<<<<< HEAD
 import dao.Dao;
+=======
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
 import dao.DateTime;
 import Api.test.ExecPy;
 import java.awt.Color;
@@ -39,7 +42,11 @@ public class UI extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
+<<<<<<< HEAD
     public UI(){
+=======
+    public UI() {
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
         initComponents();
         
         getContentPane().setBackground(new Color(0,49,83));
@@ -56,6 +63,10 @@ public class UI extends javax.swing.JFrame {
         this.box1.setEditable(false);
         this.box1.setFont(new Font("Arial", Font.PLAIN, 14));
         /*------------------------------------------------------------------------------------------------------------------*/
+<<<<<<< HEAD
+=======
+                
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
     }    
     
 
@@ -364,7 +375,11 @@ public class UI extends javax.swing.JFrame {
             prompt.Analise(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
+<<<<<<< HEAD
             Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
+=======
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
@@ -379,7 +394,11 @@ public class UI extends javax.swing.JFrame {
             prompt.Explicacao(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
+<<<<<<< HEAD
             Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
+=======
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
@@ -394,7 +413,11 @@ public class UI extends javax.swing.JFrame {
             prompt.Sugestao(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
 
+<<<<<<< HEAD
             Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
+=======
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'S', prompt.Nome(), DateTime.getDataTime());
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
@@ -426,7 +449,11 @@ public class UI extends javax.swing.JFrame {
             }
 
             DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
+<<<<<<< HEAD
             ArrayList<Object[]> historico = Dao.selectDB(conn, ia);
+=======
+            ArrayList<Object[]> historico = ConnectionDB.selectDB(conn, ia);
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
 
             for (Object[] h : historico) {
                 tabelaHist.addRow(h);
@@ -478,7 +505,11 @@ public class UI extends javax.swing.JFrame {
         try {
             prompt.Document(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
+<<<<<<< HEAD
             Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+=======
+            ConnectionDB.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'D', prompt.Nome(), DateTime.getDataTime());
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error generating documentation");
@@ -548,7 +579,10 @@ public class UI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UI().setVisible(true);
+<<<<<<< HEAD
                 
+=======
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
             }
     });
 }

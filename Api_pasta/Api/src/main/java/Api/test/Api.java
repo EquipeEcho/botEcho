@@ -4,9 +4,13 @@
 
 package Api.test;
 
+<<<<<<< HEAD
 import dao.ConnectionDB;
 import gui.UI;
 import java.sql.SQLException;
+=======
+import gui.UI;
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
 
 /**
  *

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\Api\test\Api.java
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\Api\test\ExecPy.java
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\dao\ConnectionDB.java
@@ -5,3 +6,11 @@ C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\dao\Dao.java
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\dao\DateTime.java
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\gui\Prompt.java
 C:\Users\Bruna\Api\bot\botEcho\Api_pasta\Api\src\main\java\gui\UI.java
+=======
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\Api\test\Api.java
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\Api\test\ExecPy.java
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\dao\ConnectionDB.java
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\dao\DateTime.java
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\gui\Prompt.java
+C:\Users\olive\OneDrive\Área de Trabalho\butequin\botEcho\Api_pasta\Api\src\main\java\gui\UI.java
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
