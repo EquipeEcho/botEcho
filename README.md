@@ -17,6 +17,7 @@ Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código 
 Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrado), com foco na resolução de problemas reais, mentalidade ágil e validação externa. O objetivo é criar uma IDE que auxilie desenvolvedores no aprimoramento de código, com ênfase em eficiência e boas práticas.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Sprint | Previsão | Status|
 |------|--------|------|
 |<p style="text-align">Kick Off |<p style="text-align"> 24/02 - 28/02 | <p style="text-align"> Concluído |
@@ -24,6 +25,9 @@ Sprint | Previsão | Status|
 |<p style="text-align">[Sprint 2](https://github.com/EquipeEcho/botEcho/tree/botEcho.S2)|<p style="text-align">07/04 - 27/04|<p style="text-align">Em andamento|
 |<p style="text-align">[Sprint 3](https://github.com/EquipeEcho/botEcho/tree/main) |<p style="text-align"> 05/05 - 25/05 |<p style="text-align"> Não iniciada |
 |<p style="text-align">Feira de Soluções |<p style="text-align"> 29/05 |<p style="text-align">Não iniciada|
+=======
+**Objetivo da Sprint 2:**
+>>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
 =======
 **Objetivo da Sprint 2:**
 >>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f

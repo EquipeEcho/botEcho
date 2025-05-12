@@ -42,7 +42,5 @@ public class ConnectionDB {
         
         stm.close();
         connectDB().close();
-        
     }
-    
 }
