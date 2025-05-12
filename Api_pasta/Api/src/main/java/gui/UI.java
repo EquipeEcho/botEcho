@@ -39,7 +39,7 @@ public class UI extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
-    public UI() {
+    public UI(){
         initComponents();
         
         getContentPane().setBackground(new Color(0,49,83));
@@ -56,7 +56,6 @@ public class UI extends javax.swing.JFrame {
         this.box1.setEditable(false);
         this.box1.setFont(new Font("Arial", Font.PLAIN, 14));
         /*------------------------------------------------------------------------------------------------------------------*/
-
     }    
     
 
@@ -365,7 +364,6 @@ public class UI extends javax.swing.JFrame {
             prompt.Analise(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
             Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'A', prompt.Nome(), DateTime.getDataTime());
-            
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
@@ -379,8 +377,7 @@ public class UI extends javax.swing.JFrame {
         try {
             prompt.Explicacao(jTextArea1.getText());
             jTextArea2.setText(prompt.respostaBot());
-
-            Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());          
+            Dao.insertDB(conn, prompt.respostaBot(), prompt.Utilidade(), 'E', prompt.Nome(), DateTime.getDataTime());
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
@@ -428,7 +425,6 @@ public class UI extends javax.swing.JFrame {
 
             DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
             ArrayList<Object[]> historico = Dao.selectDB(conn, ia);
-
 
             for (Object[] h : historico) {
                 tabelaHist.addRow(h);
@@ -550,6 +546,7 @@ public class UI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UI().setVisible(true);
+
             }
     });
 }
