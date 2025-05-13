@@ -27,6 +27,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.IOException;
 
 public class UI extends javax.swing.JFrame {
     public char ia;
@@ -78,11 +81,13 @@ public class UI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         analise = new javax.swing.JMenuItem();
         explicacao = new javax.swing.JMenuItem();
@@ -141,6 +146,8 @@ public class UI extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Output");
 
+        jButton1.setText("jButton1");
+
         jMenu1.setText("Arquivo");
 
         jMenuItem1.setText("Abrir arquivo");
@@ -166,6 +173,14 @@ public class UI extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem6.setText("Abrir bash");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
 
@@ -239,16 +254,15 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2))
-                            .addComponent(jLabel4))
-                        .addGap(0, 26, Short.MAX_VALUE))))
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(670, 670, 670))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,6 +534,24 @@ public class UI extends javax.swing.JFrame {
             y+=1;
         }}
     }//GEN-LAST:event_jTextArea2CaretUpdate
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+
+                try {
+
+                    String gitBashPath = "C:\\Program Files\\Git\\bin\\bash.exe";
+                    
+
+                    String command = "cmd.exe /c start \"\" \"C:\\Program Files\\Git\\bin\\bash.exe\"";
+
+
+                    Runtime.getRuntime().exec(command);
+                    
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao abrir o Git Bash como Administrador: " + ex.getMessage());                         
+        };
+    
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
           
             
     /**
@@ -556,6 +588,7 @@ public class UI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem analise;
     private javax.swing.JMenuItem explicacao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -572,6 +605,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
