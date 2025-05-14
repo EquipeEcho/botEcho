@@ -87,7 +87,6 @@ public class UI extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         analise = new javax.swing.JMenuItem();
         explicacao = new javax.swing.JMenuItem();
@@ -95,6 +94,7 @@ public class UI extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
@@ -174,14 +174,6 @@ public class UI extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem6.setText("Abrir bash");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem6);
-
         jMenuBar1.add(jMenu1);
 
         jMenu5.setText("Inteligência Artificial (IA)");
@@ -232,6 +224,14 @@ public class UI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu6.setText("Bash");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
+
         jMenu2.setText("Ajuda");
         jMenuBar1.add(jMenu2);
 
@@ -278,7 +278,7 @@ public class UI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -535,9 +535,8 @@ public class UI extends javax.swing.JFrame {
         }}
     }//GEN-LAST:event_jTextArea2CaretUpdate
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-
-                try {
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        try {
 
                     String gitBashPath = "C:\\Program Files\\Git\\bin\\bash.exe";
                     
@@ -550,8 +549,7 @@ public class UI extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao abrir o Git Bash como Administrador: " + ex.getMessage());                         
         };
-    
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMenu6MouseClicked
           
             
     /**
@@ -599,13 +597,13 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
