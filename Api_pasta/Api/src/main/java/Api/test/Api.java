@@ -5,6 +5,7 @@
 package Api.test;
 
 import dao.ConnectionDB;
+import gui.SplashScreen;
 import gui.UI;
 import java.sql.SQLException;
 
@@ -25,7 +26,7 @@ public class Api {
             
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI().setVisible(true);
+                new SplashScreen().setVisible(true);
             }
         });   
     }

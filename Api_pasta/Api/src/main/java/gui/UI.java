@@ -4,11 +4,28 @@
  */
 package gui;
 
+
+import java.awt.Component;
+import java.awt.Image;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import gui.SplashScreen;
 import dao.ConnectionDB;
 import dao.Dao;
 import dao.DateTime;
 import Api.test.ExecPy;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -42,25 +59,161 @@ public class UI extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
-    public UI(){
-        initComponents();
-        
-        getContentPane().setBackground(new Color(0,49,83));
-        ImageIcon icone = new ImageIcon("bender.png");
-        jLabel3.setIcon(icone);
-        /*------------------------------------------------------------------------------------------------------------------*/
-        /*Numeracao de linhas e bordas*/
-        this.box.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Color.LIGHT_GRAY));
-        this.box.setColumns(4);
-        this.box.setEditable(false);
-        this.box.setFont(new Font("Arial", Font.PLAIN, 14));
-        this.box1.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 2, Color.LIGHT_GRAY));
-        this.box1.setColumns(4);
-        this.box1.setEditable(false);
-        this.box1.setFont(new Font("Arial", Font.PLAIN, 14));
-        /*------------------------------------------------------------------------------------------------------------------*/
-    }    
+public UI() {
+    initComponents();
     
+
+    applyCustomStyles(); 
+}
+private void applyCustomStyles() {
+    
+    
+  
+    Color bgColorDark = new Color(70, 70, 70);       
+    Color bgColorMedium = new Color(100, 100, 100);      
+    Color textColorLight = new Color(220, 220, 220);    
+    Color accentColor = new Color(208,210,106);     
+    Color buttonHoverBgColor = new Color(75, 75, 75); 
+
+    
+    Font fontGeneral, fontGeneralBold, fontTitle, fontMonospaced;
+    try {
+        fontGeneral = new Font("Open Sans", Font.PLAIN, 14);
+        if (!new Font(fontGeneral.getFamily(), Font.PLAIN, 1).getFamily().equals("Open Sans")) throw new Exception();
+    } catch (Exception e) { fontGeneral = new Font("SansSerif", Font.PLAIN, 14); }
+    try {
+        fontGeneralBold = new Font("Open Sans", Font.BOLD, 14);
+        if (!new Font(fontGeneralBold.getFamily(), Font.BOLD, 1).getFamily().equals("Open Sans")) throw new Exception();
+    } catch (Exception e) { fontGeneralBold = new Font("SansSerif", Font.BOLD, 14); }
+    try {
+        fontTitle = new Font("Open Sans", Font.BOLD, 18);
+        if (!new Font(fontTitle.getFamily(), Font.BOLD, 1).getFamily().equals("Open Sans")) throw new Exception();
+    } catch (Exception e) { fontTitle = new Font("SansSerif", Font.BOLD, 18); }
+    try {
+        fontMonospaced = new Font("Consolas", Font.PLAIN, 14);
+        if (!new Font(fontMonospaced.getFamily(), Font.PLAIN, 1).getFamily().equals("Consolas")) throw new Exception();
+    } catch (Exception e) { fontMonospaced = new Font("Monospaced", Font.PLAIN, 14); }
+
+    // Frame Principal
+    getContentPane().setBackground(bgColorDark);
+    // setTitle("BotEcho IDE"); // Mantenha ou ajuste o título conforme preferir
+
+    // Ícone do Bender (jLabel3)
+    try {
+        ImageIcon benderIcon = new ImageIcon("bender.png"); // Caminho para o novo ícone
+        Image image = benderIcon.getImage().getScaledInstance(170, 300, Image.SCALE_AREA_AVERAGING); // Ajuste o tamanho se necessário
+        jLabel5.setIcon(new ImageIcon(image));
+        
+        
+        jLabel5.setText(""); // Limpa o texto do label do ícone
+        jLabel5.setHorizontalAlignment(SwingConstants.CENTER);
+    } catch (Exception e) {
+        jLabel5.setText("[Ícone Bender]");
+        System.err.println("Erro ao carregar o ícone Bender para jLabel3: " + e.getMessage());
+    }
+
+    // JTextAreas para números de linha (box, box1) - Assumindo que são os campos 'box' e 'box1' da sua classe
+    // Se 'this.box' e 'this.box1' são os JTextAreas para numeração de linhas:
+    if (this.box != null) { 
+        this.box.setBackground(bgColorDark); 
+        this.box.setForeground(textColorLight); 
+        this.box.setFont(fontMonospaced); 
+        this.box.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, accentColor));
+        this.box.setEditable(false);
+    }
+    if (this.box1 != null) {
+        this.box1.setBackground(bgColorDark);
+        this.box1.setForeground(textColorLight);
+        this.box1.setFont(fontMonospaced);
+        this.box1.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, accentColor));
+        this.box1.setEditable(false);
+    }
+
+    // JTextArea de Input (jTextArea1)
+    jTextArea1.setBackground(bgColorMedium);
+    jTextArea1.setForeground(textColorLight);
+    jTextArea1.setFont(fontMonospaced);
+    jTextArea1.setCaretColor(textColorLight);
+    jTextArea1.setLineWrap(true);
+    jTextArea1.setWrapStyleWord(true);
+    jScrollPane1.setBorder(BorderFactory.createLineBorder(accentColor, 1));
+    jScrollPane1.getViewport().setBackground(bgColorMedium);
+
+    // JTextArea de Output (jTextArea2)
+    jTextArea2.setBackground(bgColorMedium);
+    jTextArea2.setForeground(textColorLight);
+    jTextArea2.setFont(fontMonospaced);
+    jTextArea2.setCaretColor(textColorLight);
+    jTextArea2.setEditable(false);
+    jTextArea2.setLineWrap(true);
+    jTextArea2.setWrapStyleWord(true);
+    jScrollPane2.setBorder(BorderFactory.createLineBorder(accentColor, 1));
+    jScrollPane2.getViewport().setBackground(bgColorMedium);
+
+    // Botão Run (jButton3)
+    styleButton(jButton3, fontGeneralBold, bgColorMedium, textColorLight, accentColor, buttonHoverBgColor);
+    jButton3.setText("Run"); // Traduzido para português
+
+    // Labels
+    jLabel1.setFont(fontTitle); // "BotEcho" (título à esquerda, abaixo do ícone)
+    jLabel1.setForeground(textColorLight);
+    // jLabel1.setHorizontalAlignment(SwingConstants.CENTER); // Centralizar se necessário
+
+    jLabel2.setFont(fontTitle); // "Input"
+    jLabel2.setForeground(textColorLight);
+
+    jLabel4.setFont(fontTitle); // "Output"
+    jLabel4.setForeground(textColorLight);
+
+    // Botão não utilizado (jButton1) - Ocultar
+    if (jButton1 != null) jButton1.setVisible(false);
+    
+    
+
+    // Barra de Menu (jMenuBar1) e Menus
+    jMenuBar1.setBackground(bgColorDark);
+    jMenuBar1.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, accentColor)); // Borda inferior
+
+    for (int i = 0; i < jMenuBar1.getMenuCount(); i++) {
+        JMenu menu = jMenuBar1.getMenu(i);
+        menu.setForeground(textColorLight);
+        menu.setFont(fontGeneralBold);
+        menu.setOpaque(true);
+        menu.setBackground(bgColorDark);
+
+        for (Component menuItemComponent : menu.getMenuComponents()) {
+            if (menuItemComponent instanceof JMenuItem) {
+                JMenuItem menuItem = (JMenuItem) menuItemComponent;
+                menuItem.setFont(fontGeneral);
+                menuItem.setForeground(textColorLight);
+                menuItem.setBackground(bgColorMedium); // Fundo para itens do dropdown
+                menuItem.setOpaque(true);
+            }
+        }
+    }
+}
+
+private void styleButton(JButton button, Font font, Color bg, Color fg, Color border, Color hoverBg) {
+    if (button == null) return;
+    button.setFont(font);
+    button.setBackground(bg);
+    button.setForeground(fg);
+    button.setFocusPainted(false);
+    button.setBorder(BorderFactory.createCompoundBorder(
+        BorderFactory.createLineBorder(border, 1),
+        BorderFactory.createEmptyBorder(8, 25, 8, 25) 
+    ));
+    button.setOpaque(true);
+
+    button.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            button.setBackground(hoverBg);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            button.setBackground(bg);
+        }
+    });
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +235,7 @@ public class UI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -242,48 +396,59 @@ public class UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(670, 670, 670))
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
-                .addGap(0, 26, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 1035, Short.MAX_VALUE)))
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
 
         getAccessibleContext().setAccessibleName("BotEcho IDE");
@@ -395,7 +560,7 @@ public class UI extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace(); // Print error details
             System.out.print("An error occurred: " + e.getMessage());
-        }
+        } 
     }//GEN-LAST:event_explicacaoActionPerformed
 
     private void sugestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sugestaoActionPerformed
@@ -592,6 +757,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
