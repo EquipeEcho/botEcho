@@ -62,10 +62,10 @@ public class UI extends javax.swing.JFrame {
         try {
             ImageIcon benderIcon = null;
             try {
-                benderIcon = new ImageIcon(getClass().getResource("/icons/bender_icon.png"));
+                benderIcon = new ImageIcon(getClass().getResource("bender.png"));
             } catch (Exception e) {
-                System.err.println("Tentando carregar bender_icon.png do caminho absoluto como fallback.");
-                benderIcon = new ImageIcon("bender_icon.png"); 
+                System.err.println("Tentando carregar bender2.png do caminho absoluto como fallback.");
+                benderIcon = new ImageIcon("bender.png"); 
             }
             
             if (benderIcon.getIconWidth() > 0) {
@@ -77,8 +77,8 @@ public class UI extends javax.swing.JFrame {
                 throw new Exception("Ícone inválido");
             }
         } catch (Exception e) {
-            jLabel3.setText("[BotEcho Logo]");
-            System.err.println("Erro ao carregar o ícone bender_icon.png: " + e.getMessage());
+            jLabel3.setText("");
+            System.err.println("Erro ao carregar o ícone bender2.png: " + e.getMessage());
         }
 }
 @SuppressWarnings("unchecked")
@@ -155,7 +155,7 @@ private void initComponents() {
 
         // Labels
         jLabel1.setText("BotEcho");
-        jLabel2.setText("Input (Python Code)");
+        jLabel2.setText("Input");
         jLabel4.setText("Output");
         
         // Botão não utilizado
@@ -365,7 +365,8 @@ private void applyCustomStyles() {
        // Cores
         Color bgColorDark = new Color(43, 43, 43);       // Fundo escuro
         Color bgColorMedium = new Color(60, 63, 65);     // Fundo médio para áreas de texto
-        Color textColorLight = new Color(109,105,139); // Texto claro
+        Color textColorLight = new Color(211,211,211); // Texto claro
+        Color textColorDark = new Color (28,28,28); // texto escuro           
         Color accentColor = new Color(75, 110, 175);     // Azul como cor de destaque
         Color currentLineColor = new Color(50, 50, 50);  // Cor da linha atual
         
@@ -463,7 +464,7 @@ private void applyCustomStyles() {
         for (int i = 0; i < jMenuBar1.getMenuCount(); i++) {
             JMenu menu = jMenuBar1.getMenu(i);
             if (menu != null) {
-                menu.setForeground(textColorLight);
+                menu.setForeground(textColorDark);
                 menu.setFont(fontGeneral);
                 
                 // itens de menu
@@ -471,7 +472,7 @@ private void applyCustomStyles() {
                     JMenuItem item = menu.getItem(j);
                     if (item != null) {
                         item.setBackground(bgColorDark);
-                        item.setForeground(textColorLight);
+                        item.setForeground(textColorDark);
                         item.setFont(fontGeneral);
                     }
                 }
