@@ -45,4 +45,8 @@ public class ExecPy {
      }
      
     }
+
+    public void exec(String text, int op, char ia) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
