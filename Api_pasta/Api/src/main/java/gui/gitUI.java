@@ -263,11 +263,12 @@ public static void executarComando(String comando, String diretorio) throws IOEx
     private void ExecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecutarActionPerformed
         String remoteUrl = "https://" + this.token + "@github.com/" + usuariogit.getText() + "/" + nomerep.getText() + ".git";
         String caminhoArquivostr = caminhoArquivo.getText();
+        String nomedabranch;
         System.out.print(this.token);
         try {
             executarComando("git remote remove origin", caminhoArquivostr);
         } catch (Exception ignored) {}
-/*adaaass*/
+/*ada*/
         try {
             executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
             executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
@@ -276,9 +277,12 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             executarComando("git status --porcelain", caminhoArquivo.getText());
             executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
             if(branch.getText().equals("")){
-            executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
+                 nomedabranch = "main";
+            }else{
+                 nomedabranch = branch.getText();
             }
-            executarComando("git push --rebase", caminhoArquivo.getText());
+            executarComando("git pull origin " + nomedabranch + " --rebase", caminhoArquivo.getText());
+            executarComando("git push origin " + nomedabranch, caminhoArquivo.getText());
             
 
             JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
