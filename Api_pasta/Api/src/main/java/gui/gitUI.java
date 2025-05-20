@@ -273,16 +273,16 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
             executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
             executarComando("git config user.email \"" + emailgit.getText() + "\"", caminhoArquivo.getText());
+                        if(branch.getText().equals("")){
+            executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
+            nomedabranch = branch.getText();
+            }else{ nomedabranch = "main";
+                        }
             executarComando("git add .", caminhoArquivo.getText());
             executarComando("git status --porcelain", caminhoArquivo.getText());
             executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
-            if(branch.getText().equals("")){
-                 nomedabranch = "main";
-            }else{
-                 nomedabranch = branch.getText();
-            }
             executarComando("git pull origin " + nomedabranch + " --rebase", caminhoArquivo.getText());
-            executarComando("git push origin " + nomedabranch, caminhoArquivo.getText());
+            executarComando("git push -u origin " + nomedabranch , caminhoArquivo.getText());
             
 
             JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
