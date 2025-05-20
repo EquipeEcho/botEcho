@@ -267,7 +267,7 @@ public static void executarComando(String comando, String diretorio) throws IOEx
         try {
             executarComando("git remote remove origin", caminhoArquivostr);
         } catch (Exception ignored) {}
-/*adass*/
+/*adaaass*/
         try {
             executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
             executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
@@ -278,8 +278,7 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             if(branch.getText().equals("")){
             executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
             }
-            executarComando("git pull origin main --rebase", caminhoArquivo.getText());
-            executarComando("git push origin main", caminhoArquivo.getText());
+            executarComando("git push --rebase", caminhoArquivo.getText());
             
 
             JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
