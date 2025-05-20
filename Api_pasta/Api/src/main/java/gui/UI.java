@@ -4,7 +4,12 @@
  */
 package gui;
 
-
+import java.io.*;
+import java.nio.file.*;
+import java.util.Base64;
+import java.io.*;
+import java.nio.file.*;
+import java.util.Base64;
 import dao.ConnectionDB;
 import dao.Dao;
 import dao.DateTime;
@@ -514,6 +519,13 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -525,6 +537,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -539,8 +552,23 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
+
+        jMenu7.setText("File");
+        jMenuBar2.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar2.add(jMenu8);
+
+        jMenu9.setText("File");
+        jMenuBar3.add(jMenu9);
+
+        jMenu10.setText("Edit");
+        jMenuBar3.add(jMenu10);
+
+        jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bot Echo IDE");
@@ -590,6 +618,8 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jLabel4.setText("Output");
 
         jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
 
         jMenu1.setText("Arquivo");
 
@@ -673,10 +703,28 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
                 jMenu6MouseClicked(evt);
             }
         });
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         jMenu2.setText("Ajuda");
         jMenuBar1.add(jMenu2);
+
+        jMenu12.setText("Git");
+        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu12MouseClicked(evt);
+            }
+        });
+        jMenu12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu12ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
 
@@ -735,7 +783,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))))
         );
@@ -930,20 +978,30 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     }//GEN-LAST:event_jTextArea2CaretUpdate
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        try {
+                SwingUtilities.invokeLater(new Runnable() {
 
-                    String gitBashPath = "C:\\Program Files\\Git\\bin\\bash.exe";
-                    
-
-                    String command = "cmd.exe /c start \"\" \"C:\\Program Files\\Git\\bin\\bash.exe\"";
-
-
-                    Runtime.getRuntime().exec(command);
-                    
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao abrir o Git Bash como Administrador: " + ex.getMessage());                         
-        };
+        @Override //annotation if you are using Java >= 1.5
+        public void run() {
+            JFrame f = new JFrame();
+            gitUI jPanel1 = new gitUI();
+            f.getContentPane().add(jPanel1);
+            f.pack();
+            f.setVisible(true);
+        }
+    }); 
     }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
+
+    }//GEN-LAST:event_jMenu12MouseClicked
+
+    private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu12ActionPerformed
           
             
     /**
@@ -971,6 +1029,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private javax.swing.JMenuItem analise;
     private javax.swing.JMenuItem explicacao;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -978,17 +1037,25 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
