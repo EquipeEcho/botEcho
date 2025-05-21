@@ -281,7 +281,6 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             executarComando("git add .", caminhoArquivo.getText());
             executarComando("git status --porcelain", caminhoArquivo.getText());
             executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
-            executarComando("git pull origin " + nomedabranch + " --rebase", caminhoArquivo.getText());
             executarComando("git push -u origin " + nomedabranch , caminhoArquivo.getText());
             
 
