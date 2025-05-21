@@ -268,7 +268,7 @@ public static void executarComando(String comando, String diretorio) throws IOEx
         try {
             executarComando("git remote remove origin", caminhoArquivostr);
         } catch (Exception ignored) {}
-/*kkkk*/
+/*kkkkkkk*/
         try {
             executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
             executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
