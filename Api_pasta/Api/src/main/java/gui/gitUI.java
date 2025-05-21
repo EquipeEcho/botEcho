@@ -275,16 +275,15 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             executarComando("git config user.email \"" + emailgit.getText() + "\"", caminhoArquivo.getText());
             if(branch.getText().equals("")){
                nomedabranch = "main";
-            }else{  executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
+            }else{  executarComando("git checkout -B " + branch.getText(), caminhoArquivo.getText());
             nomedabranch = branch.getText();
                         }
             executarComando("git add .", caminhoArquivo.getText());
-            executarComando("git status --porcelain", caminhoArquivo.getText());
             executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
             if(branch.getText().equals("")){
             executarComando("git push origin main " , caminhoArquivo.getText());
             }else{
-                executarComando("git push --set-upstream origin botEcho.S3", caminhoArquivo.getText());
+                executarComando("git push --set-upstream origin " + branch.getText(), caminhoArquivo.getText());
             }
             
 
