@@ -919,29 +919,71 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     }//GEN-LAST:event_sugestaoActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-         Dao d = new Dao();
-        ConnectionDB c = new ConnectionDB();
-        try (Connection conn = c.connect()) {
-            ArrayList<String> historico = d.gerarHistorico(conn);
-            JFrame frameHistorico = new JFrame("Histórico de Comandos");
-            DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Comandos");
-            for(String comando : historico){
-                model.addRow(new Object[]{comando});
+          Connection conn = ConnectionDB.connectDB();
+
+        try {
+            String[] opcoes = {"Análise", "Explicação", "Sugestão", "Documentação"};
+            String[] colunas = new String[]{
+                "Nome", "Data", "Resposta", "Tipo"
+            };
+
+            int op = JOptionPane.showOptionDialog(null, "Escolha o tipo dos prompts:", "Histórico de Visualizações", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
+
+            if (op == 0) {
+                ia = 'A';
+            } else if (op == 1) {
+                ia = 'E';
+            } else if (op == 2) {
+                ia = 'S';
+            } else if (op == 3){
+                ia = 'D';
+            } else if (op == JOptionPane.CLOSED_OPTION) {
+                return;
             }
-            JTable tabelaHistorico = new JTable(model);
-            tabelaHistorico.setEnabled(false);
-            JScrollPane scrollPaneHistorico = new JScrollPane(tabelaHistorico);
-            frameHistorico.add(scrollPaneHistorico);
+
+            DefaultTableModel tabelaHist = new DefaultTableModel(colunas, 0);
+            ArrayList<Object[]> historico = Dao.selectDB(conn, ia);
+
+            for (Object[] h : historico) {
+                tabelaHist.addRow(h);
+            }
+
+            JTable tabelaHistorico = new JTable(tabelaHist);
+            tabelaHistorico.setRowHeight(20);
+            TableColumnModel columnModel = tabelaHistorico.getColumnModel();
+            columnModel.getColumn(0).setWidth(100);
+            columnModel.getColumn(1).setPreferredWidth(60);
+            columnModel.getColumn(2).setPreferredWidth(250);
+            columnModel.getColumn(3).setPreferredWidth(10);
+            JFrame frameHistorico = new JFrame("Histórico de Prompts");
+            frameHistorico.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            JScrollPane scroll = new JScrollPane(tabelaHistorico);
+            frameHistorico.getContentPane().add(scroll);
             frameHistorico.pack();
-            frameHistorico.setLocationRelativeTo(this); 
+            frameHistorico.setLocationRelativeTo(null);
             frameHistorico.setVisible(true);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Erro ao acessar o banco de dados para o histórico: " + e.getMessage(), "Erro de Banco de Dados", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Erro ao gerar histórico: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
+            tabelaHistorico.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent evt) {
+                    int row = tabelaHistorico.rowAtPoint(evt.getPoint());
+                    JScrollPane scroll = new JScrollPane(tabelaHistorico);
+
+                    if (row >= 0) {
+                        Object nome = tabelaHistorico.getValueAt(row, 0);
+                        Object data = tabelaHistorico.getValueAt(row, 1);
+                        Object resposta = tabelaHistorico.getValueAt(row, 2);
+
+                        jTextArea1.setText("Nome: " + nome + "\nData: " + data + "\nResposta: \n" + resposta);
+                        frameHistorico.dispose();
+                    }
+                }
+            });
+
+        } catch (SQLException er) {
+            er.printStackTrace();
+        } catch (Exception er) {
+            throw new RuntimeException(er);
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
