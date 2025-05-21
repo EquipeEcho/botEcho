@@ -270,37 +270,26 @@ public static void executarComando(String comando, String diretorio) throws IOEx
         } catch (Exception ignored) {}
 /**/
         try {
-    // Define o nome da branch
-    String nomeDaBranch = branch.getText().trim().isEmpty() ? "main" : branch.getText().trim();
+            executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
+            executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
+            executarComando("git config user.email \"" + emailgit.getText() + "\"", caminhoArquivo.getText());
+            if(branch.getText().equals("")){
+               nomedabranch = "main";
+            }else{  executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
+            nomedabranch = branch.getText();
+                        }
+            executarComando("git add .", caminhoArquivo.getText());
+            executarComando("git status --porcelain", caminhoArquivo.getText());
+            executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
+             
+            executarComando("git push origin main " , caminhoArquivo.getText());
+            
+            
 
-    // Remove o remote antigo, se existir
-    try {
-        executarComando("git remote remove origin", caminhoArquivo.getText());
-    } catch (Exception ignored) {}
-
-    // Adiciona o novo remote
-    executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
-
-    // Configurações do usuário Git
-    executarComando("git config user.name \"" + usuariogit.getText().trim() + "\"", caminhoArquivo.getText());
-    executarComando("git config user.email \"" + emailgit.getText().trim() + "\"", caminhoArquivo.getText());
-
-    // Muda ou cria a branch
-    executarComando("git checkout -B " + nomeDaBranch, caminhoArquivo.getText());
-
-    // Adiciona e commita
-    executarComando("git add .", caminhoArquivo.getText());
-    executarComando("git commit -m \"" + commit.getText().trim() + "\"", caminhoArquivo.getText());
-
-    // Push para a branch correta
-    executarComando("git push origin " + nomeDaBranch, caminhoArquivo.getText());
-
-    JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
-
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
-}
-
+            JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
+        }
     }//GEN-LAST:event_ExecutarActionPerformed
 
 
