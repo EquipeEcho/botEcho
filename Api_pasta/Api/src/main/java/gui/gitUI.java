@@ -281,7 +281,11 @@ public static void executarComando(String comando, String diretorio) throws IOEx
             executarComando("git add .", caminhoArquivo.getText());
             executarComando("git status --porcelain", caminhoArquivo.getText());
             executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
-            executarComando("git push ", caminhoArquivo.getText());
+            if(branch.getText().equals("")){
+            executarComando("git push origin main " , caminhoArquivo.getText());
+            }else{
+                executarComando("git push --set-upstream origin botEcho.S3", caminhoArquivo.getText());
+            }
             
 
             JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
