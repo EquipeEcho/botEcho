@@ -293,7 +293,7 @@ public static void executarComando(String comando, String diretorio) throws IOEx
     executarComando("git commit -m \"" + commit.getText().trim() + "\"", caminhoArquivo.getText());
 
     // Push para a branch correta
-    executarComando("git push --set-upstream origin " + nomeDaBranch, caminhoArquivo.getText());
+    executarComando("git push origin " + nomeDaBranch, caminhoArquivo.getText());
 
     JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
 
