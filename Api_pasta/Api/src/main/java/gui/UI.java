@@ -132,9 +132,12 @@ private void initComponents() {
         sugestao = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -278,24 +281,37 @@ private void initComponents() {
         jMenu3.add(jMenuItem4);
         jMenuBar1.add(jMenu3);
 
-        // Menu Bash 
-        jMenu6.setText("Bash");
+        
+        //Menu GitHub
+        
+        jMenu11.setText("GitHub");
         try {
             ImageIcon terminalIcon = new ImageIcon("terminal_icon.png");
             if (terminalIcon.getIconWidth() > 0) {
                 Image img = terminalIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
-                jMenu6.setIcon(new ImageIcon(img));
+                jMenu11.setIcon(new ImageIcon(img));
             }
         } catch (Exception e) {
             System.err.println("Erro ao carregar ícone terminal: " + e.getMessage());
         }
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
+        jMenuItem7.setText("Commit");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu6);
+        jMenu11.add(jMenuItem7);
 
+        jMenuItem8.setText("Clone");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu11);
+        
         // Menu Ajuda 
         jMenu2.setText("Ajuda");
         try {
@@ -552,7 +568,9 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -713,18 +731,25 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jMenu2.setText("Ajuda");
         jMenuBar1.add(jMenu2);
 
-        jMenu12.setText("Git");
-        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu12MouseClicked(evt);
-            }
-        });
-        jMenu12.addActionListener(new java.awt.event.ActionListener() {
+        jMenu11.setText("GitHub");
+
+        jMenuItem7.setText("Commit");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu12ActionPerformed(evt);
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu12);
+        jMenu11.add(jMenuItem7);
+
+        jMenuItem8.setText("Clone");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
@@ -1020,7 +1045,25 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     }//GEN-LAST:event_jTextArea2CaretUpdate
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-                SwingUtilities.invokeLater(new Runnable() {
+                
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+        SwingUtilities.invokeLater(new Runnable() {
+
+        @Override //annotation if you are using Java >= 1.5
+        public void run() {
+            JFrame f = new JFrame();
+            CloneUI jPanel1 = new CloneUI();
+            f.getContentPane().add(jPanel1);
+            f.pack();
+            f.setVisible(true);
+        }
+    }); 
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        SwingUtilities.invokeLater(new Runnable() {
 
         @Override //annotation if you are using Java >= 1.5
         public void run() {
@@ -1031,19 +1074,21 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
             f.setVisible(true);
         }
     }); 
-    }//GEN-LAST:event_jMenu6MouseClicked
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu6ActionPerformed
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        SwingUtilities.invokeLater(new Runnable() {
 
-    private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
-
-    }//GEN-LAST:event_jMenu12MouseClicked
-
-    private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu12ActionPerformed
+        @Override //annotation if you are using Java >= 1.5
+        public void run() {
+            JFrame f = new JFrame();
+            CloneUI jPanel1 = new CloneUI();
+            f.getContentPane().add(jPanel1);
+            f.pack();
+            f.setVisible(true);
+        }
+    }); 
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
           
             
     /**
@@ -1080,7 +1125,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -1098,6 +1143,8 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
