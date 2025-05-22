@@ -27,6 +27,15 @@ public class gitUI extends javax.swing.JPanel {
      */
     public gitUI() {
         initComponents();
+        File tokenFile = new File(System.getProperty("user.home") + File.separator + ".github_token");
+        if (tokenFile.exists()) {
+            try {
+                String encodedToken = Files.readString(Path.of(System.getProperty("user.home") + File.separator + ".github_token"));
+                this.token = new String(Base64.getDecoder().decode(encodedToken));
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao ler token salvo: " + e.getMessage());
+            }
+        }
     }
 
     /**
@@ -93,6 +102,16 @@ public class gitUI extends javax.swing.JPanel {
             }
         });
 
+        usuariogit.setText("Ryan53132");
+
+        emailgit.setText("ryan53132@gmail.com");
+
+        nomerep.setText("Bertoti");
+
+        commit.setText("teste");
+
+        caminhoArquivo.setText("C:\\Users\\Ryan\\Desktop\\bertoti\\Bertoti");
+
         salvarToken.setText("Salvar Token");
         salvarToken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +125,8 @@ public class gitUI extends javax.swing.JPanel {
                 ExecutarActionPerformed(evt);
             }
         });
+
+        branch.setText("teste");
 
         jLabel7.setText("Branch(Se a branch for nula será comitado na main)");
 
@@ -196,7 +217,6 @@ public class gitUI extends javax.swing.JPanel {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        Procurar.getAccessibleContext().setAccessibleName("Procurar");
         tokenCaminho.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
@@ -263,32 +283,24 @@ public static void executarComando(String comando, String diretorio) throws IOEx
     private void ExecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecutarActionPerformed
         String remoteUrl = "https://" + this.token + "@github.com/" + usuariogit.getText() + "/" + nomerep.getText() + ".git";
         String caminhoArquivostr = caminhoArquivo.getText();
-        String nomedabranch;
-        System.out.print(this.token);
         try {
             executarComando("git remote remove origin", caminhoArquivostr);
         } catch (Exception ignored) {}
-/**/
+
         try {
             executarComando("git remote add origin " + remoteUrl, caminhoArquivo.getText());
             executarComando("git config user.name \"" + usuariogit.getText() + "\"", caminhoArquivo.getText());
             executarComando("git config user.email \"" + emailgit.getText() + "\"", caminhoArquivo.getText());
-            if(branch.getText().equals("")){
-               nomedabranch = "main";
-            }else{  executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
-            nomedabranch = branch.getText();
-                        }
+            executarComando("git fetch origin", caminhoArquivo.getText());
             executarComando("git add .", caminhoArquivo.getText());
-            executarComando("git status --porcelain", caminhoArquivo.getText());
-            executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());             
-            executarComando("git push origin main " , caminhoArquivo.getText());
-            
-            
-
+            executarComando("git commit -m \"" + commit.getText() + "\"", caminhoArquivo.getText());
+            executarComando("git checkout "+branch.getText(), caminhoArquivo.getText());
+            executarComando("git branch -a", caminhoArquivo.getText());
+            executarComando("git push -u origin "+branch.getText(), caminhoArquivo.getText());
             JOptionPane.showMessageDialog(null, "Commit e push realizados com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());
-        }
+            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());         
+}
     }//GEN-LAST:event_ExecutarActionPerformed
 
 

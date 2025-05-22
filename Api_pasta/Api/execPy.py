@@ -1,3 +1,4 @@
-for x in range(120):
-	x<50 and x>20
-print(x)
+x = 1
+while(x != 14):
+	print("Teste",x)
+	x+=1
