@@ -18,7 +18,7 @@ public class SplashScreen extends JFrame {
     public SplashScreen() {
         setTitle("BotEcho - Inicializando");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 600);
+        setSize(1100, 600);
         setLocationRelativeTo(null); // Centralizar na tela
         setUndecorated(true); // Remover bordas da janela para um look mais "splash"
 
