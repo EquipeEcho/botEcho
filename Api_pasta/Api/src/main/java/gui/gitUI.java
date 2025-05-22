@@ -102,16 +102,6 @@ public class gitUI extends javax.swing.JPanel {
             }
         });
 
-        usuariogit.setText("Ryan53132");
-
-        emailgit.setText("ryan53132@gmail.com");
-
-        nomerep.setText("Bertoti");
-
-        commit.setText("teste");
-
-        caminhoArquivo.setText("C:\\Users\\Ryan\\Desktop\\bertoti\\Bertoti");
-
         salvarToken.setText("Salvar Token");
         salvarToken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +115,6 @@ public class gitUI extends javax.swing.JPanel {
                 ExecutarActionPerformed(evt);
             }
         });
-
-        branch.setText("teste");
 
         jLabel7.setText("Branch(Se a branch for nula será comitado na main)");
 

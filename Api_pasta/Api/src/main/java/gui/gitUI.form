@@ -203,29 +203,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="usuariogit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ryan53132"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailgit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ryan53132@gmail.com"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomerep">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Bertoti"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="commit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="teste"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="caminhoArquivo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cRyan\u005cDesktop\u005cbertoti\u005cBertoti" containsInvalidXMLChars="true"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="salvarToken">
       <Properties>
@@ -244,9 +229,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="branch">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="teste"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
