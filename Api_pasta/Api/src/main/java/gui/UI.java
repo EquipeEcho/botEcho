@@ -63,28 +63,7 @@ public class UI extends javax.swing.JFrame {
         
         applyCustomStyles();
         
-        //  ícone do Bender
-        try {
-            ImageIcon benderIcon = null;
-            try {
-                benderIcon = new ImageIcon(getClass().getResource("bender.png"));
-            } catch (Exception e) {
-                System.err.println("Tentando carregar bender2.png do caminho absoluto como fallback.");
-                benderIcon = new ImageIcon("bender.png"); 
-            }
-            
-            if (benderIcon.getIconWidth() > 0) {
-                Image image = benderIcon.getImage().getScaledInstance(140, 200, Image.SCALE_SMOOTH);
-                jLabel3.setIcon(new ImageIcon(image));
-                jLabel3.setText("");
-                jLabel3.setHorizontalAlignment(SwingConstants.CENTER);
-            } else {
-                throw new Exception("Ícone inválido");
-            }
-        } catch (Exception e) {
-            jLabel3.setText("");
-            System.err.println("Erro ao carregar o ícone bender2.png: " + e.getMessage());
-        }
+      
 }
 @SuppressWarnings("unchecked")
 
