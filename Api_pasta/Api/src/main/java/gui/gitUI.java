@@ -268,7 +268,8 @@ public class gitUI extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Erro ao ler token salvo: " + e.getMessage());
                 
             }
-        }             
+        }  
+         JOptionPane.showMessageDialog(null, "Token salvo com sucesso!");
     }//GEN-LAST:event_salvarTokenActionPerformed
 public static void executarComando(String comando, String diretorio) throws IOException, InterruptedException {
         ProcessBuilder builder = new ProcessBuilder();

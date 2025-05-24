@@ -154,11 +154,11 @@ public class CloneUI extends javax.swing.JPanel {
         try {
             executarComando("git clone " + urlLink, caminhoArquivo.getText());
             if(!branch.getText().equals("")){
-            executarComando("cd " + projNome.getText(), caminhoArquivo.getText());
-            executarComando("git fetch", caminhoArquivo.getText());
-            executarComando("git checkout " + branch.getText(), caminhoArquivo.getText());
-            executarComando("git pull origin "+branch.getText(), caminhoArquivo.getText());
+            executarComando("git fetch", caminhoArquivo.getText()+"/"+projNome.getText());
+            executarComando("git checkout " + branch.getText(), caminhoArquivo.getText()+"/"+projNome.getText());
+            executarComando("git pull origin "+branch.getText(), caminhoArquivo.getText()+"/"+projNome.getText());
             }
+             JOptionPane.showMessageDialog(null, "Clone realizados com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage());         
 }
