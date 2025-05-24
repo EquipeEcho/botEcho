@@ -19,13 +19,13 @@ public class SplashScreen extends JFrame {
         setTitle("BotEcho - Inicializando");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1100, 600);
-        setLocationRelativeTo(null); // Centralizar na tela
-        setUndecorated(true); // Remover bordas da janela para um look mais "splash"
+        setLocationRelativeTo(null);
+        setUndecorated(true);
 
-        // Paleta de cores frias e minimalista
-        Color backgroundColor = new Color(45, 45, 45); // Cinza escuro
-        Color textColor = new Color(220, 220, 220); // Cinza claro
-        Color buttonColor = new Color(60, 60, 60); // Cinza um pouco mais claro para o botão
+       
+        Color backgroundColor = new Color(45, 45, 45); 
+        Color textColor = new Color(220, 220, 220); 
+        Color buttonColor = new Color(60, 60, 60); 
         Color buttonTextColor = new Color(200, 200, 200);
         Color borderColor = new Color(208,210,106);
 
@@ -33,7 +33,6 @@ public class SplashScreen extends JFrame {
         setLayout(new BorderLayout());
         getRootPane().setBorder(BorderFactory.createLineBorder(borderColor, 2));
 
-        // Painel principal
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(backgroundColor);
         GridBagConstraints gbc = new GridBagConstraints();
@@ -41,10 +40,10 @@ public class SplashScreen extends JFrame {
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.anchor = GridBagConstraints.CENTER;
 
-        // Ícone do Bender
+       
         JLabel iconLabel = new JLabel();
         try {
-            ImageIcon benderIcon = new ImageIcon("boteco_logo.png");
+            ImageIcon benderIcon = new ImageIcon("imagens/boteco_logo.png");
             Image image = benderIcon.getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT);
             iconLabel.setIcon(new ImageIcon(image));
         } catch (Exception e) {
@@ -53,13 +52,13 @@ public class SplashScreen extends JFrame {
         }
         mainPanel.add(iconLabel, gbc);
 
-        // Título "BotEcho"
+
         JLabel titleLabel = new JLabel("Bem-Vindo ao BotEcho");
-        titleLabel.setFont(new Font("Open Sans", Font.BOLD, 30)); // Fonte moderna
+        titleLabel.setFont(new Font("Open Sans", Font.BOLD, 30)); 
         titleLabel.setForeground(textColor);
         mainPanel.add(titleLabel, gbc);
 
-        // Botão Iniciar
+        
         JButton startButton = new JButton("Iniciar");
         startButton.setFont(new Font("Open Sans", Font.PLAIN, 18));
         startButton.setBackground(buttonColor);
@@ -67,9 +66,9 @@ public class SplashScreen extends JFrame {
         startButton.setFocusPainted(false);
         startButton.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(borderColor.brighter(), 1),
-            BorderFactory.createEmptyBorder(10, 30, 10, 30) // Padding interno
+            BorderFactory.createEmptyBorder(10, 30, 10, 30) 
         ));
-        // Efeito hover simples
+    
         startButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 startButton.setBackground(buttonColor.brighter());

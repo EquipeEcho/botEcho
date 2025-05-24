@@ -71,20 +71,20 @@ private void initComponents() {
         RSyntaxTextArea outputTextArea = new RSyntaxTextArea(20, 60);
         jScrollPane2 = new RTextScrollPane(outputTextArea);
         
-        // RSyntaxTextArea  input
+       
         inputTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_PYTHON);
         inputTextArea.setCodeFoldingEnabled(true);
         inputTextArea.setAntiAliasingEnabled(true);
         inputTextArea.setFont(new Font("Consolas", Font.PLAIN, 14));
         
-        //  RSyntaxTextArea  output
+       
         outputTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_PYTHON);
         outputTextArea.setCodeFoldingEnabled(true);
         outputTextArea.setAntiAliasingEnabled(true);
         outputTextArea.setFont(new Font("Consolas", Font.PLAIN, 14));
         outputTextArea.setEditable(false);
         
-        //  variáveis 
+      
         jTextArea1 = inputTextArea;
         jTextArea2 = outputTextArea;
         
@@ -117,38 +117,40 @@ private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bot Echo IDE");
 
-        // Botão Run 
+         
         jButton3.setText("Run");
-        try {
-            ImageIcon playIcon = new ImageIcon("play_icon.png");
-            if (playIcon.getIconWidth() > 0) {
-                Image img = playIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
-                jButton3.setIcon(new ImageIcon(img));
-            }
-        } catch (Exception e) {
-            System.err.println("Erro ao carregar ícone play: " + e.getMessage());
-        }
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        // Labels
+       
         jLabel1.setText("BotEcho");
         jLabel2.setText("Input");
         jLabel4.setText("Output");
         
-        // Botão não utilizado
+        
         jButton1.setText("jButton1");
         jButton1.setVisible(false);
 
-        // Menu Arquivo 
+       
         jMenu1.setText("Arquivo");
+        
+         jMenu1.setText("Arquivo");
+        try {
+            ImageIcon folderIcon = new ImageIcon("imagens/arquivo.png");
+            if (folderIcon.getIconWidth() > 0) {
+                Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+                jMenu1.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+              System.err.println("Erro ao carregar ícone folder: " + e.getMessage());
+        }
         
         jMenuItem1.setText("Abrir arquivo");
         try {
-            ImageIcon folderIcon = new ImageIcon("folder_icon.png");
+            ImageIcon folderIcon = new ImageIcon("imagens/arquivo.png");
             if (folderIcon.getIconWidth() > 0) {
                 Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem1.setIcon(new ImageIcon(img));
@@ -165,7 +167,7 @@ private void initComponents() {
 
         jMenuItem2.setText("Salvar");
         try {
-            ImageIcon saveIcon = new ImageIcon("save_icon.png");
+            ImageIcon saveIcon = new ImageIcon("imagens/save.png");
             if (saveIcon.getIconWidth() > 0) {
                 Image img = saveIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem2.setIcon(new ImageIcon(img));
@@ -182,7 +184,7 @@ private void initComponents() {
 
         jMenuItem3.setText("Salvar como...");
         try {
-            ImageIcon saveIcon = new ImageIcon("save_icon.png");
+            ImageIcon saveIcon = new ImageIcon("imagens/save.png");
             if (saveIcon.getIconWidth() > 0) {
                 Image img = saveIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem3.setIcon(new ImageIcon(img));
@@ -198,12 +200,12 @@ private void initComponents() {
         jMenu1.add(jMenuItem3);
         jMenuBar1.add(jMenu1);
 
-        // Menu IA 
+      
         jMenu5.setText("Inteligência Artificial (IA)");
         try {
-            ImageIcon aiIcon = new ImageIcon("");
+            ImageIcon aiIcon = new ImageIcon("imagens/IA.png");
             if (aiIcon.getIconWidth() > 0) {
-                Image img = aiIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenu5.setIcon(new ImageIcon(img));
             }
         } catch (Exception e) {
@@ -211,6 +213,15 @@ private void initComponents() {
         }
         
         analise.setText("Realizar análise");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/analise.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                analise.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         analise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 analiseActionPerformed(evt);
@@ -219,6 +230,15 @@ private void initComponents() {
         jMenu5.add(analise);
 
         explicacao.setText("Gerar explicação");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/explicacao.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                explicacao.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         explicacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 explicacaoActionPerformed(evt);
@@ -227,6 +247,15 @@ private void initComponents() {
         jMenu5.add(explicacao);
 
         sugestao.setText("Sugestões de melhoria");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/sugestao.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                sugestao.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         sugestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sugestaoActionPerformed(evt);
@@ -235,6 +264,15 @@ private void initComponents() {
         jMenu5.add(sugestao);
 
         jMenuItem5.setText("Gerar documentação");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/documentacao.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                jMenuItem5.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -243,8 +281,18 @@ private void initComponents() {
         jMenu5.add(jMenuItem5);
         jMenuBar1.add(jMenu5);
 
-        // Menu Histórico
+        
         jMenu3.setText("Histórico");
+          jMenu3.setText("Histórico");
+        try {
+            ImageIcon folderIcon = new ImageIcon("imagens/historico.png");
+            if (folderIcon.getIconWidth() > 0) {
+                Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+                jMenu3.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+              System.err.println("Erro ao carregar ícone folder: " + e.getMessage());
+        }
         jMenuItem4.setText("Gerar histórico");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,19 +303,28 @@ private void initComponents() {
         jMenuBar1.add(jMenu3);
 
         
-        //Menu GitHub
+      
         
         jMenu11.setText("GitHub");
         try {
-            ImageIcon terminalIcon = new ImageIcon("");
+            ImageIcon terminalIcon = new ImageIcon("imagens/github.png");
             if (terminalIcon.getIconWidth() > 0) {
-                Image img = terminalIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+                Image img = terminalIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenu11.setIcon(new ImageIcon(img));
             }
         } catch (Exception e) {
             System.err.println("Erro ao carregar ícone terminal: " + e.getMessage());
         }
         jMenuItem7.setText("Commit");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/commit.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                jMenuItem7.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -276,6 +333,15 @@ private void initComponents() {
         jMenu11.add(jMenuItem7);
 
         jMenuItem8.setText("Clone");
+         try {
+            ImageIcon aiIcon = new ImageIcon("imagens/clone.png");
+            if (aiIcon.getIconWidth() > 0) {
+                Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
+                jMenuItem8.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar ícone: " + e.getMessage());
+        }
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -285,10 +351,10 @@ private void initComponents() {
 
         jMenuBar1.add(jMenu11);
         
-        // Menu Ajuda 
+        
         jMenu2.setText("Ajuda");
         try {
-            ImageIcon helpIcon = new ImageIcon("");
+            ImageIcon helpIcon = new ImageIcon("imagens/ajuda2.png");
             if (helpIcon.getIconWidth() > 0) {
                 Image img = helpIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu2.setIcon(new ImageIcon(img));
@@ -300,7 +366,7 @@ private void initComponents() {
 
         setJMenuBar(jMenuBar1);
 
-        // Layout
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -356,13 +422,13 @@ private void initComponents() {
     
 private void applyCustomStyles() {
     
-       // Cores
-        Color bgColorDark = new Color(43, 43, 43);       // Fundo escuro
-        Color bgColorMedium = new Color(60, 63, 65);     // Fundo médio para áreas de texto
-        Color textColorLight = new Color(211,211,211); // Texto claro
-        Color textColorDark = new Color (28,28,28); // texto escuro           
-        Color accentColor = new Color(75, 110, 175);     // Azul como cor de destaque
-        Color currentLineColor = new Color(50, 50, 50);  // Cor da linha atual
+      
+        Color bgColorDark = new Color(43, 43, 43);     
+        Color bgColorMedium = new Color(60, 63, 65);    
+        Color textColorLight = new Color(211,211,211); 
+        Color textColorDark = new Color (28,28,28);          
+        Color accentColor = new Color(75, 110, 175);     
+        Color currentLineColor = new Color(50, 50, 50);  
         
         // Fontes
         Font fontGeneral, fontTitle, fontMonospaced;
@@ -386,10 +452,10 @@ private void applyCustomStyles() {
             fontMonospaced = new Font("Monospaced", Font.PLAIN, 14); 
         }
 
-        //  cores de fundo
+        
         getContentPane().setBackground(bgColorDark);
         
-        //  Input (jTextArea1)
+       
         ((RSyntaxTextArea)jTextArea1).setBackground(bgColorMedium);
         ((RSyntaxTextArea)jTextArea1).setForeground(textColorLight);
         ((RSyntaxTextArea)jTextArea1).setFont(fontMonospaced);
@@ -398,21 +464,21 @@ private void applyCustomStyles() {
         ((RSyntaxTextArea)jTextArea1).setMarkOccurrences(true);
         ((RSyntaxTextArea)jTextArea1).setBracketMatchingEnabled(true);
         
-        //  tema RSyntaxTextArea
+       
         try {
             Theme theme = Theme.load(getClass().getResourceAsStream(
                     "/org/fife/ui/rsyntaxtextarea/themes/dark.xml"));
             theme.apply((RSyntaxTextArea)jTextArea1);
             theme.apply((RSyntaxTextArea)jTextArea2);
         } catch (Exception e) {
-            // Fallback para configuração manual se o tema não puder ser carregado
+            
             ((RSyntaxTextArea)jTextArea1).setBackground(bgColorMedium);
             ((RSyntaxTextArea)jTextArea1).setForeground(textColorLight);
             ((RSyntaxTextArea)jTextArea2).setBackground(bgColorMedium);
             ((RSyntaxTextArea)jTextArea2).setForeground(textColorLight);
         }
         
-        // bordas do RTextScrollPane
+       
         if (jScrollPane1 instanceof RTextScrollPane) {
             ((RTextScrollPane)jScrollPane1).setLineNumbersEnabled(true);
             ((RTextScrollPane)jScrollPane1).getGutter().setBackground(bgColorDark);
@@ -420,14 +486,14 @@ private void applyCustomStyles() {
         }
         jScrollPane1.setBorder(BorderFactory.createLineBorder(accentColor, 1));
 
-        // Estilizar RSyntaxTextArea de Output (jTextArea2)
+        
         ((RSyntaxTextArea)jTextArea2).setBackground(bgColorMedium);
         ((RSyntaxTextArea)jTextArea2).setForeground(textColorLight);
         ((RSyntaxTextArea)jTextArea2).setFont(fontMonospaced);
         ((RSyntaxTextArea)jTextArea2).setCaretColor(textColorLight);
         ((RSyntaxTextArea)jTextArea2).setCurrentLineHighlightColor(currentLineColor);
         
-        // Configurar bordas do RTextScrollPane para output
+       
         if (jScrollPane2 instanceof RTextScrollPane) {
             ((RTextScrollPane)jScrollPane2).setLineNumbersEnabled(true);
             ((RTextScrollPane)jScrollPane2).getGutter().setBackground(bgColorDark);
@@ -435,14 +501,14 @@ private void applyCustomStyles() {
         }
         jScrollPane2.setBorder(BorderFactory.createLineBorder(accentColor, 1));
 
-        // Estilizar botão Run (jButton3)
+      
         jButton3.setBackground(accentColor);
         jButton3.setForeground(textColorLight);
         jButton3.setFont(fontGeneral);
         jButton3.setFocusPainted(false);
         jButton3.setBorderPainted(false);
 
-        // Estilizar labels
+     
         jLabel1.setFont(fontTitle);
         jLabel1.setForeground(textColorLight);
         jLabel2.setFont(fontTitle);
@@ -450,7 +516,7 @@ private void applyCustomStyles() {
         jLabel4.setFont(fontTitle);
         jLabel4.setForeground(textColorLight);
 
-        // barra de menu
+       
         jMenuBar1.setBackground(bgColorDark);
         jMenuBar1.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, accentColor));
         
@@ -461,7 +527,7 @@ private void applyCustomStyles() {
                 menu.setForeground(textColorLight);
                 menu.setFont(fontGeneral);
                 
-                // itens de menu
+              
                 for (int j = 0; j < menu.getItemCount(); j++) {
                     JMenuItem item = menu.getItem(j);
                     if (item != null) {
