@@ -43,7 +43,7 @@ public class SplashScreen extends JFrame {
        
         JLabel iconLabel = new JLabel();
         try {
-            ImageIcon benderIcon = new ImageIcon("imagens/boteco_logo.png");
+            ImageIcon benderIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/boteco_logo.png"));
             Image image = benderIcon.getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT);
             iconLabel.setIcon(new ImageIcon(image));
         } catch (Exception e) {

@@ -139,7 +139,7 @@ private void initComponents() {
         
          jMenu1.setText("Arquivo");
         try {
-            ImageIcon folderIcon = new ImageIcon("imagens/arquivo.png");
+            ImageIcon folderIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/arquivo.png"));
             if (folderIcon.getIconWidth() > 0) {
                 Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu1.setIcon(new ImageIcon(img));
@@ -150,7 +150,7 @@ private void initComponents() {
         
         jMenuItem1.setText("Abrir arquivo");
         try {
-            ImageIcon folderIcon = new ImageIcon("imagens/arquivo.png");
+            ImageIcon folderIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/arquivo.png"));
             if (folderIcon.getIconWidth() > 0) {
                 Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem1.setIcon(new ImageIcon(img));
@@ -167,7 +167,7 @@ private void initComponents() {
 
         jMenuItem2.setText("Salvar");
         try {
-            ImageIcon saveIcon = new ImageIcon("imagens/save.png");
+            ImageIcon saveIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/save.png"));
             if (saveIcon.getIconWidth() > 0) {
                 Image img = saveIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem2.setIcon(new ImageIcon(img));
@@ -184,7 +184,7 @@ private void initComponents() {
 
         jMenuItem3.setText("Salvar como...");
         try {
-            ImageIcon saveIcon = new ImageIcon("imagens/save.png");
+            ImageIcon saveIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/save.png"));
             if (saveIcon.getIconWidth() > 0) {
                 Image img = saveIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenuItem3.setIcon(new ImageIcon(img));
@@ -203,7 +203,7 @@ private void initComponents() {
       
         jMenu5.setText("Inteligência Artificial (IA)");
         try {
-            ImageIcon aiIcon = new ImageIcon("imagens/IA.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/IA.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenu5.setIcon(new ImageIcon(img));
@@ -214,7 +214,7 @@ private void initComponents() {
         
         analise.setText("Realizar análise");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/analise.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/analise.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 analise.setIcon(new ImageIcon(img));
@@ -231,7 +231,7 @@ private void initComponents() {
 
         explicacao.setText("Gerar explicação");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/explicacao.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/explicacao.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 explicacao.setIcon(new ImageIcon(img));
@@ -248,7 +248,7 @@ private void initComponents() {
 
         sugestao.setText("Sugestões de melhoria");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/sugestao.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/sugestao.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 sugestao.setIcon(new ImageIcon(img));
@@ -265,7 +265,7 @@ private void initComponents() {
 
         jMenuItem5.setText("Gerar documentação");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/documentacao.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/documentacao.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenuItem5.setIcon(new ImageIcon(img));
@@ -285,7 +285,7 @@ private void initComponents() {
         jMenu3.setText("Histórico");
           jMenu3.setText("Histórico");
         try {
-            ImageIcon folderIcon = new ImageIcon("imagens/historico.png");
+            ImageIcon folderIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/historico.png"));
             if (folderIcon.getIconWidth() > 0) {
                 Image img = folderIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu3.setIcon(new ImageIcon(img));
@@ -307,7 +307,7 @@ private void initComponents() {
         
         jMenu11.setText("GitHub");
         try {
-            ImageIcon terminalIcon = new ImageIcon("imagens/github.png");
+            ImageIcon terminalIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/github.png"));
             if (terminalIcon.getIconWidth() > 0) {
                 Image img = terminalIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenu11.setIcon(new ImageIcon(img));
@@ -317,7 +317,7 @@ private void initComponents() {
         }
         jMenuItem7.setText("Commit");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/commit.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/commit.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenuItem7.setIcon(new ImageIcon(img));
@@ -334,7 +334,7 @@ private void initComponents() {
 
         jMenuItem8.setText("Clone");
          try {
-            ImageIcon aiIcon = new ImageIcon("imagens/clone.png");
+            ImageIcon aiIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/clone.png"));
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(19, 19, Image.SCALE_SMOOTH);
                 jMenuItem8.setIcon(new ImageIcon(img));
@@ -354,7 +354,7 @@ private void initComponents() {
         
         jMenu2.setText("Ajuda");
         try {
-            ImageIcon helpIcon = new ImageIcon("imagens/ajuda2.png");
+            ImageIcon helpIcon = new ImageIcon(ClassLoader.getSystemResource("imagens/ajuda2.png"));
             if (helpIcon.getIconWidth() > 0) {
                 Image img = helpIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu2.setIcon(new ImageIcon(img));
