@@ -14,6 +14,7 @@ import dao.ConnectionDB;
 import dao.Dao;
 import dao.DateTime;
 import Api.test.ExecPy;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -50,14 +51,7 @@ public class UI extends javax.swing.JFrame {
     private java.io.File currentFile;
     
     public UI() {
-        try {
-         
-            FlatIntelliJLaf.setup();
-        } catch (Exception ex) {
-            System.err.println("Falha ao inicializar o FlatLaf: " + ex.getMessage());
-        }
-        
-       
+     
         initComponents();
         
         
@@ -207,7 +201,7 @@ private void initComponents() {
         // Menu IA 
         jMenu5.setText("Inteligência Artificial (IA)");
         try {
-            ImageIcon aiIcon = new ImageIcon("ai_icon.png");
+            ImageIcon aiIcon = new ImageIcon("");
             if (aiIcon.getIconWidth() > 0) {
                 Image img = aiIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu5.setIcon(new ImageIcon(img));
@@ -265,7 +259,7 @@ private void initComponents() {
         
         jMenu11.setText("GitHub");
         try {
-            ImageIcon terminalIcon = new ImageIcon("terminal_icon.png");
+            ImageIcon terminalIcon = new ImageIcon("");
             if (terminalIcon.getIconWidth() > 0) {
                 Image img = terminalIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu11.setIcon(new ImageIcon(img));
@@ -294,7 +288,7 @@ private void initComponents() {
         // Menu Ajuda 
         jMenu2.setText("Ajuda");
         try {
-            ImageIcon helpIcon = new ImageIcon("help_icon.png");
+            ImageIcon helpIcon = new ImageIcon("");
             if (helpIcon.getIconWidth() > 0) {
                 Image img = helpIcon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
                 jMenu2.setIcon(new ImageIcon(img));
@@ -464,7 +458,7 @@ private void applyCustomStyles() {
         for (int i = 0; i < jMenuBar1.getMenuCount(); i++) {
             JMenu menu = jMenuBar1.getMenu(i);
             if (menu != null) {
-                menu.setForeground(textColorDark);
+                menu.setForeground(textColorLight);
                 menu.setFont(fontGeneral);
                 
                 // itens de menu
@@ -472,7 +466,7 @@ private void applyCustomStyles() {
                     JMenuItem item = menu.getItem(j);
                     if (item != null) {
                         item.setBackground(bgColorDark);
-                        item.setForeground(textColorDark);
+                        item.setForeground(textColorLight);
                         item.setFont(fontGeneral);
                     }
                 }
@@ -620,6 +614,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
 
         jMenu1.setText("Arquivo");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/arquivo.png"))); // NOI18N
         jMenuItem1.setText("Abrir arquivo");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -628,6 +623,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/save.png"))); // NOI18N
         jMenuItem2.setText("Salvar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -636,6 +632,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/save.png"))); // NOI18N
         jMenuItem3.setText("Salvar como...");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -648,6 +645,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
 
         jMenu5.setText("Inteligência Artificial (IA)");
 
+        analise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/analise.png"))); // NOI18N
         analise.setText("Realizar análise");
         analise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -656,6 +654,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu5.add(analise);
 
+        explicacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/explicacao.png"))); // NOI18N
         explicacao.setText("Gerar explicação");
         explicacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -664,6 +663,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu5.add(explicacao);
 
+        sugestao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/melhorias.png"))); // NOI18N
         sugestao.setText("Sugestões de melhoria");
         sugestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -672,6 +672,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu5.add(sugestao);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/documentacao.png"))); // NOI18N
         jMenuItem5.setText("Gerar documentação");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -684,6 +685,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
 
         jMenu3.setText("Histórico");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/historico.png"))); // NOI18N
         jMenuItem4.setText("Gerar histórico");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -708,10 +710,16 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jMenuBar1.add(jMenu6);
 
         jMenu2.setText("Ajuda");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu11.setText("GitHub");
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/commit.png"))); // NOI18N
         jMenuItem7.setText("Commit");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -720,6 +728,7 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         });
         jMenu11.add(jMenuItem7);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Api/imagens/clone.png"))); // NOI18N
         jMenuItem8.setText("Clone");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1068,6 +1077,10 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         }
     }); 
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
           
             
     /**
@@ -1075,13 +1088,28 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
      */
    
        public static void main(String args[]) {
+           
+           
            try {
-            // Aplicar FlatLaf
-            FlatIntelliJLaf.setup();
+            // FlatLaf
+          // FlatIntelliJLaf.setup();
+          UIManager.setLookAndFeel( new FlatDarkLaf());
+           
+          UIManager.put("MenuBar.background", new Color(43, 43, 43));
+          UIManager.put("MenuBar.foreground", new Color(220, 220, 220));
+          UIManager.put("Menu.background", new Color(43, 43, 43));
+          UIManager.put("Menu.foreground", new Color(220, 220, 220));
+          UIManager.put("MenuItem.background", new Color(43, 43, 43));
+          UIManager.put("MenuItem.foreground", new Color(220, 220, 220));
+          UIManager.put("Menu.selectionBackground", new Color(75, 110, 175));
+          UIManager.put("MenuItem.selectionBackground", new Color(75, 110, 175));
+
+    
         } catch (Exception ex) {
             System.err.println("Falha ao inicializar o FlatLaf: " + ex.getMessage());
+            
         }
-
+           
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UI().setVisible(true);
