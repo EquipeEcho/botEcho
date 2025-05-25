@@ -363,7 +363,11 @@ private void initComponents() {
             System.err.println("Erro ao carregar ícone help: " + e.getMessage());
         }
         jMenuBar1.add(jMenu2);
-
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         
@@ -776,6 +780,11 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
         jMenuBar1.add(jMenu6);
 
         jMenu2.setText("Ajuda");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -1147,6 +1156,20 @@ private void styleButton(JButton button, Font font, Color bg, Color fg, Color bo
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        SwingUtilities.invokeLater(new Runnable() {
+
+        @Override //annotation if you are using Java >= 1.5
+        public void run() {
+            JFrame f = new JFrame();
+            AjudaUI jPanel1 = new AjudaUI();
+            f.getContentPane().add(jPanel1);
+            f.pack();
+            f.setVisible(true);
+        }
+    });
+    }//GEN-LAST:event_jMenu2MouseClicked
           
             
     /**

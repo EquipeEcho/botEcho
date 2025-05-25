@@ -53,7 +53,7 @@
               </classPath>
               <icon>src/main/resources/boteco.ico</icon>
               <jre>
-                <path>../jdk-23/bin</path>
+                <path>../jre</path>
               </jre>
             </configuration>
           </execution>

@@ -4,14 +4,17 @@ gui\gitUI$2.class
 gui\UI$11.class
 gui\UI$3.class
 gui\UI$9.class
+gui\UI$19.class
 gui\gitUI$3.class
 gui\gitUI.class
 gui\SplashScreen$2.class
 gui\CloneUI$1.class
+gui\UI$20.class
 Api\test\ExecPy.class
 gui\UI$12.class
 gui\UI$18.class
 dao\Dao.class
+gui\AjudaUI.class
 gui\UI$2.class
 gui\UI$5.class
 gui\UI$15.class

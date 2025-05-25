@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="3c" green="3c" red="3c" type="rgb"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane2" alignment="0" pref="369" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane2" alignment="0" pref="569" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JEditorPane" name="jEditorPane1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="contentType" type="java.lang.String" value="text/html" noResource="true"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3c" green="3c" red="3c" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;html lang=&quot;en&quot;&gt;&#xa;&lt;head&gt;&#xa;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xa;    &lt;style&gt;&#xa;        body{&#xa;            background-color: rgb(43,43,43);&#xa;            margin: 0;&#xa;            padding: 0px 4px 10px 4px;&#xa;        }&#xa;        h1{&#xa;            color: rgb(219, 219, 219);&#xa;        }&#xa;        h2{&#xa;            color: rgb(219, 219, 219);&#xa;        }&#xa;        h3{&#xa;            color: rgb(219, 219, 219);&#xa;        }&#xa;        h4{&#xa;            color: rgb(219, 219, 219);&#xa;        }&#xa;        h5{&#xa;            color: rgb(219, 219, 219);&#xa;        }&#xa;        p{&#xa;            color: rgb(211, 211, 211);&#xa;            margin: 1px 0px 1px 0px;&#xa;        }&#xa;        p.codigo{&#xa;            background-color: gray;&#xa;            padding: 4px 4px 4px 10px;&#xa;            border: 3px solid rgb(68, 68, 68);&#xa;            border-radius: 10px;&#xa;        }&#xa;    &lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;  &#xa;&lt;h2&gt;Como fazer uma plot&lt;/h2&gt;&#xa;&lt;br&gt;&#xa;&lt;p class=&quot;codigo&quot;&gt;import matplotlib.pyplot as plt&lt;/p&gt;&#xa;&lt;p&gt;Essa linha importa a biblioteca matplotlib.pyplot com o apelido plt. Essa parte da biblioteca &#xe9; usada para criar gr&#xe1;ficos de forma simples.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;x = [0, 100]&lt;/p&gt;&#xa;&lt;p&gt;Aqui voc&#xea; est&#xe1; criando uma lista chamada x com dois valores: 0 e 100. Esses valores v&#xe3;o ser usados como dados para o gr&#xe1;fico.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.plot(x, label=&apos;Linha de 0 a 100&apos;)&lt;/p&gt;&#xa;&lt;p&gt;Essa linha cria um gr&#xe1;fico de linha com os dados da lista x. Como n&#xe3;o foi passada uma lista de valores para o eixo X, o Matplotlib usa os &#xed;ndices da lista automaticamente &lt;br&gt; (ou seja, 0 e 1).  O texto em label=&apos;Linha de 0 a 100&apos; serve para nomear essa linha, e ser&#xe1; mostrado na legenda.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.title(&apos;Linha do ponto (0,0) at&#xe9; (100,100)&apos;)&lt;/p&gt;&#xa;&lt;p&gt;Define o t&#xed;tulo do gr&#xe1;fico.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.xlabel(&apos;Eixo X&apos;) &lt;br&gt; &#xa;plt.ylabel(&apos;Eixo Y&apos;)&lt;/p&gt;&#xa;&lt;p&gt;Essas duas linhas definem os nomes dos eixos horizontal (X) e vertical (Y).&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.legend()&lt;/p&gt;&#xa;&lt;p&gt;Exibe a legenda do gr&#xe1;fico, usando o nome que voc&#xea; deu com o label na linha do gr&#xe1;fico.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.grid(True)&lt;/p&gt;&#xa;&lt;p&gt;Adiciona uma grade (linhas de fundo) ao gr&#xe1;fico para facilitar a leitura dos valores.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;plt.show()&lt;/p&gt;&#xa;&lt;p&gt;Exibe o gr&#xe1;fico na tela. Essa linha &#xe9; obrigat&#xf3;ria para mostrar o gr&#xe1;fico final.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;h2&gt;Outros tipos de gr&#xe1;ficos no Matplotlib&lt;/h2&gt;&#xa;&#xa;&lt;h3&gt;Gr&#xe1;fico de pizza (pie chart)&lt;/h3&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;import matplotlib.pyplot as plt&lt;br&gt;&#xa;valores = [30, 25, 45]&lt;br&gt;&#xa;categorias = [&apos;Python&apos;, &apos;Java&apos;, &apos;C++&apos;]&lt;br&gt;&#xa;plt.pie(valores, labels=categorias, autopct=&apos;%1.1f%%&apos;, startangle=90)&lt;br&gt;&#xa;plt.title(&apos;Prefer&#xea;ncia por linguagens de programa&#xe7;&#xe3;o&apos;)&lt;br&gt;&#xa;plt.axis(&apos;equal&apos;)&lt;br&gt;&#xa;plt.show()&lt;/p&gt;&#xa;&lt;p&gt;Esse c&#xf3;digo cria um gr&#xe1;fico de pizza com tr&#xea;s categorias. A fun&#xe7;&#xe3;o &lt;code&gt;autopct&lt;/code&gt; mostra as porcentagens. &lt;code&gt;startangle=90&lt;/code&gt; muda o &#xe2;ngulo inicial para que o gr&#xe1;fico comece de cima. &lt;code&gt;axis(&apos;equal&apos;)&lt;/code&gt; deixa o gr&#xe1;fico perfeitamente circular.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;h3&gt;Gr&#xe1;fico de barras (barra vertical)&lt;/h3&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;import matplotlib.pyplot as plt &lt;br&gt;&#xa;linguagens = [&apos;Python&apos;, &apos;Java&apos;, &apos;C++&apos;]&lt;br&gt;&#xa;quantidades = [30, 25, 45]&lt;br&gt;&#xa;plt.bar(linguagens, quantidades, color=&apos;skyblue&apos;)&lt;br&gt;&#xa;plt.title(&apos;Quantidade de projetos por linguagem&apos;)&lt;br&gt;&#xa;plt.xlabel(&apos;Linguagens&apos;)&lt;br&gt;&#xa;plt.ylabel(&apos;Projetos&apos;)&lt;br&gt;&#xa;plt.grid(True)&lt;br&gt;&#xa;plt.show()&lt;/p&gt;&#xa;&lt;p&gt;Esse gr&#xe1;fico mostra barras verticais, onde cada barra representa a quantidade de projetos em cada linguagem. Voc&#xea; pode mudar as cores e o estilo conforme quiser.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&#xa;&lt;h3&gt;Gr&#xe1;fico com imagem (usando imshow)&lt;/h3&gt;&#xa;&#xa;&lt;p class=&quot;codigo&quot;&gt;import matplotlib.pyplot as plt&lt;br&gt;&#xa;import numpy as np&lt;br&gt;&#xa;imagem = np.random.rand(10, 10)&lt;br&gt;&#xa;plt.imshow(imagem, cmap=&apos;gray&apos;)&lt;br&gt;&#xa;plt.title(&apos;Imagem gerada aleatoriamente&apos;)&lt;br&gt;&#xa;plt.colorbar()&lt;br&gt;&#xa;plt.show()&lt;/p&gt;&#xa;&lt;p&gt;Esse c&#xf3;digo cria uma imagem aleat&#xf3;ria usando uma matriz de valores com 10 linhas e 10 colunas. A fun&#xe7;&#xe3;o &lt;code&gt;imshow&lt;/code&gt; mostra a matriz como se fosse uma imagem em tons de cinza, e &lt;code&gt;colorbar&lt;/code&gt; mostra a escala dos valores ao lado.&lt;/p&gt;&#xa;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
