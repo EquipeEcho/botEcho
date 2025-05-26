@@ -45,7 +45,6 @@ Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrad
 | VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos na IDE para análise, para facilitar a revisão e o trabalho com diferentes projetos. | 3 |
 | VIII | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 21 |
 | IX | 3 | Alta | Como usuário, quero baixar a IDE como um executável, para não depender do ambiente de desenvolvimento local. | 8 |
-| X | 2 e 3 | Baixa | Como usuário, quero personalizar a interface da IDE, para ter uma experiência mais confortável e adaptada às minhas preferências. | 3 |
 
 # Sprint Backlog
 
