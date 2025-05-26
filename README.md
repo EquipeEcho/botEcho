@@ -44,7 +44,8 @@ Uso de estratégias para entender o problema, conceber uma solução viável ao 
 | V | 2 | Média | Como desenvolvedor, quero receber recomendações de boas práticas de programação, para melhorar a qualidade do meu código. | 5 |
 | VI | 2 e 3 | Baixa |Como usuário, quero personalizar a interface da IDE, para ter uma experiência mais confortável e adaptada às minhas preferências. | 3 |
 | VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos na IDE para análise, para facilitar a revisão e o trabalho com diferentes projetos. | 3 |
-| VIII | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 8 |
+| VIII | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 21 |
+| IX | 3 | Alta | Como usuário, quero baixar a IDE como um executável, para não depender do ambiente de desenvolvimento local. | 8 |
 
 # Sprint Backlog
 
