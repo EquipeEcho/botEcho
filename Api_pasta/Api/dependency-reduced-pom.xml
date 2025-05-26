@@ -52,9 +52,6 @@
                 <mainClass>Api.test.Api</mainClass>
               </classPath>
               <icon>src/main/resources/boteco.ico</icon>
-              <jre>
-                <path>../jre</path>
-              </jre>
             </configuration>
           </execution>
         </executions>
