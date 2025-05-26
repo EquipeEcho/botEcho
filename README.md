@@ -1,8 +1,8 @@
-# Projeto BotEcho - Equipe Echo (Sprint 2)
+# Projeto BotEcho - Equipe Echo (Sprint 3)
 
 Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código e geração de gráficos com Python e Matplotlib.
 
-> 🔹 **Este README refere-se à documentação da Sprint 2 do projeto.**
+> 🔹 **Este README refere-se à documentação da Sprint 3 do projeto.**
 
 ## 🔍 Navegação
 - [Sobre o Projeto](#sobre-o-projeto)
@@ -16,27 +16,11 @@ Ambiente de Desenvolvimento Integrado com suporte a IA para análise de código 
 # Sobre o Projeto
 Projeto desenvolvido dentro da metodologia API (Aprendizado por Projeto Integrado), com foco na resolução de problemas reais, mentalidade ágil e validação externa. O objetivo é criar uma IDE que auxilie desenvolvedores no aprimoramento de código, com ênfase em eficiência e boas práticas.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Sprint | Previsão | Status|
-|------|--------|------|
-|<p style="text-align">Kick Off |<p style="text-align"> 24/02 - 28/02 | <p style="text-align"> Concluído |
-|<p style="text-align">[Sprint 1](https://github.com/EquipeEcho/botEcho/tree/main) |<p style="text-align"> 10/03 - 30/03 |<p style="text-align"> Concluído |
-|<p style="text-align">[Sprint 2](https://github.com/EquipeEcho/botEcho/tree/botEcho.S2)|<p style="text-align">07/04 - 27/04|<p style="text-align">Em andamento|
-|<p style="text-align">[Sprint 3](https://github.com/EquipeEcho/botEcho/tree/main) |<p style="text-align"> 05/05 - 25/05 |<p style="text-align"> Não iniciada |
-|<p style="text-align">Feira de Soluções |<p style="text-align"> 29/05 |<p style="text-align">Não iniciada|
-=======
-**Objetivo da Sprint 2:**
->>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
-=======
-**Objetivo da Sprint 2:**
->>>>>>> f06ddf3aeaf8efad646c909b134c69490836129f
+**Objetivo da Sprint 3:**
 
-- Implementar a execução de código dentro da IDE.
-- Iniciar a geração automática de documentação por Inteligência Artificial.
-- Aprimorar a organização de arquivos utilizando conceitos de Programação Orientada a Objetos (POO).
-- Ajustar integração e melhorias no banco de dados.
-- Melhorar funcionalidades de interface, como histórico de resposta, salvamento e carregamento de arquivos.
+- Concluir integração da IDE com o GitHub para versionamento.
+- Gerar versão executável da IDE para facilitar o uso por outros usuários.
+- Refinar a interface visual da aplicação, com foco em usabilidade e personalização.
 
 # Planejamento de Sprints
 
@@ -45,7 +29,7 @@ Sprint | Previsão | Status|
 | Kick Off | 24/02 - 28/02 | Concluído |
 | [Sprint 1](https://github.com/EquipeEcho/botEcho/tree/main) | 10/03 - 30/03 | Concluído |
 | [Sprint 2](https://github.com/EquipeEcho/botEcho/tree/botEcho.S2) | 07/04 - 27/04 | Concluído |
-| Sprint 3 | 05/05 - 25/05 | Iniciada |
+| Sprint 3 | 05/05 - 25/05 | Concluído |
 | Feira de Soluções | 29/05 | Não iniciada |
 
 # Backlog do Produto
@@ -60,19 +44,17 @@ Sprint | Previsão | Status|
 | VI | 2 e 3 | Baixa |Como usuário, quero personalizar a interface da IDE, para ter uma experiência mais confortável e adaptada às minhas preferências. | 3 |
 | VII | 2 | Baixa | Como desenvolvedor, quero carregar arquivos na IDE para análise, para facilitar a revisão e o trabalho com diferentes projetos. | 3 |
 | VIII | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 8 |
+| IX | 3 | Alta | Como desenvolvedor, quero integrar a IDE com o GitHub, para facilitar o versionamento e o compartilhamento de código. | 21 |
+| X | 3 | Alta | Como usuário, quero baixar a IDE como um executável, para não depender do ambiente de desenvolvimento local. | 8 |
+| XI | 2 e 3 | Baixa | Como usuário, quero personalizar a interface da IDE, para ter uma experiência mais confortável e adaptada às minhas preferências. | 3 |
 
 # Sprint Backlog
 
 | Tasks | User Points | Épico |
 |:--------------------------------|:-----------:|:---------------------------:|
-| Executar Código | 10 | Desenvolvimento de Código |
-| Geração de documentação por IA | 8 | Desenvolvimento de IA |
-| Organização de Arquivos e Estruturas POO | 6 | Desenvolvimento de Código |
-| Ajuste de Banco de Dados | 6 | Desenvolvimento de Código |
-| Histórico de Resposta | 3 | Interface |
-| Carregamento de Arquivos | 3 | Interface |
-| Salvamento de Arquivos | 3 | Interface |
-| Melhoria de Interface | 3 | Interface |
+| Design de Interface | 6 | Interface |
+| Implementação do GitHub na IDE | 21 | Desenvolvimento de Código |
+| Executável da IDE | 8 | Requisito não funcional |
 
 # Tecnologias Utilizadas
 
@@ -92,7 +74,7 @@ Sprint | Previsão | Status|
 
 | Tecnologia/Metodologia | Nível |
 | ---------------------- | ----- |
-| GitHub | ★★★★★★★☆☆☆ |
+| GitHub | ★★★★★★★★☆☆ |
 | Gestão de Projetos | ★★★★★★★★★☆ |
 | Scrum Master | ★★★★★★★★☆☆ |
 | Product Owner | ★★★★★★★★☆☆ |
@@ -106,8 +88,8 @@ Sprint | Previsão | Status|
 | Habilidade | Nível |
 | ---------- | ----- |
 | Colaboração | ★★★★★★★★★★ |
-| Proatividade | ★★★★★★★★☆☆ |
-| Pensamento Crítico | ★★★★★★★☆☆☆ |
+| Proatividade | ★★★★★★★★★☆ |
+| Pensamento Crítico | ★★★★★★★★☆☆ |
 | Gerenciamento de Tempo | ★★★★★★★★★☆ |
 | Adaptabilidade | ★★★★★★☆☆☆☆ |
 | Resiliência | ★★★★★★★★☆☆ |
