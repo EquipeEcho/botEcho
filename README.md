@@ -30,7 +30,7 @@ Uso de estratégias para entender o problema, conceber uma solução viável ao 
 | Kick Off | 24/02 - 28/02 | Concluído |
 | [Sprint 1](https://github.com/EquipeEcho/botEcho/tree/main) | 10/03 - 30/03 | Concluído |
 | [Sprint 2](https://github.com/EquipeEcho/botEcho/tree/botEcho.S2) | 07/04 - 27/04 | Concluído |
-| [Sprint 3](https://github.com/EquipeEcho/botEcho/tree/main) | 05/05 - 25/05 | Iniciado |
+| [Sprint 3](https://github.com/EquipeEcho/botEcho/tree/botEcho.S3) | 05/05 - 25/05 | Concluído |
 | Feira de Soluções | 29/05 | Não iniciada |
 
 # Backlog do Produto
